@@ -25,13 +25,14 @@
   tr.after-row td{background:var(--after)}
   tr.before-row td{background:var(--before)}
   td{width:18%}
-  .co{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:3px 0;line-height:1.5}
+  .co{padding:2px 0;line-height:1.55}
   .co .nm{font-weight:600}
   .co.hl .nm{color:var(--red)}
-  .btn{display:inline-block;font-size:11px;padding:1px 7px;border-radius:10px;text-decoration:none;border:1px solid transparent;line-height:1.6}
-  .btn.ir{background:#dcebff;color:#0d3b78;border-color:#b9d4f5}
-  .btn.sc{background:#ffe9d6;color:#8a4b00;border-color:#f2cfa8}
-  .btn:hover{filter:brightness(.93)}
+  .paren{color:#8b94a1}
+  a.lnk{cursor:pointer;text-decoration:none;font-weight:600}
+  a.lnk.ir{color:#0d6efd}
+  a.lnk.tr{color:#c2570a}
+  a.lnk:hover{text-decoration:underline}
   .legend{font-size:12px;color:#5a6675;margin:0 0 14px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
   .legend .btn{pointer-events:none}
   .empty{color:#aab3bf;font-size:12px}
@@ -47,8 +48,7 @@
 <main>
   <p class="legend">
     <span><b style="color:var(--red)">빨간 종목</b> = 주요 관심 종목</span>
-    <span><span class="btn ir">IR자료</span> 실적 발표자료(공시) 업데이트 시 표시</span>
-    <span><span class="btn sc">스크립트</span> 어닝콜 스크립트 업데이트 시 표시</span>
+    <span>발표 후 자료가 확인되면 종목명 옆에 <b style="color:#0d6efd">IR자료</b>, <b style="color:#c2570a">Transcript</b>가 자동으로 나타납니다. 클릭하면 바로 열려요.</span>
   </p>
   <div id="cal"></div>
 </main>
@@ -107,11 +107,12 @@ function row(label,cls,session,days,byDate){
 
 function coHtml(e){
   const hl=e.hl?" hl":"";
-  let btns="";
-  if(e.ir) btns+=` <a class='btn ir' href='${e.ir}' target='_blank' rel='noopener'>IR자료</a>`;
-  if(e.script) btns+=` <a class='btn sc' href='${e.script}' target='_blank' rel='noopener'>스크립트</a>`;
+  const parts=[];
+  if(e.ir) parts.push(`<a class='lnk ir' href='${e.ir}' target='_blank' rel='noopener'>IR자료</a>`);
+  if(e.script) parts.push(`<a class='lnk tr' href='${e.script}' target='_blank' rel='noopener'>Transcript</a>`);
+  const links=parts.length?` <span class='paren'>(</span>${parts.join("<span class='paren'>, </span>")}<span class='paren'>)</span>`:"";
   const tick=e.ticker?` title='${e.ticker}'`:"";
-  return `<div class='co${hl}'><span class='nm'${tick}>${e.name}</span>${btns}</div>`;
+  return `<div class='co${hl}'><span class='nm'${tick}>${e.name}</span>${links}</div>`;
 }
 
 function iso(d){ return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }

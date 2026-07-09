@@ -35,16 +35,27 @@ def load_cik_map():
     return {v["ticker"].upper(): str(v["cik_str"]).zfill(10) for v in data.values()}
 
 def find_edgar_filing(cik, event_date):
-    """실적발표일 ~ +7일 사이 제출된 8-K/6-K의 filing index 링크 반환"""
+    """실적발표일-1 ~ +7일 사이 제출된 8-K/6-K에서 보도자료(EX-99) 직링크 반환"""
     sub = get_json(f"https://data.sec.gov/submissions/CIK{cik}.json")
     if not sub:
         return None
     r = sub.get("filings", {}).get("recent", {})
-    forms, dates, accs = r.get("form", []), r.get("filingDate", []), r.get("accessionNumber", [])
-    lo, hi = event_date.isoformat(), (event_date + timedelta(days=7)).isoformat()
-    for form, fdate, acc in zip(forms, dates, accs):
+    forms, dates, accs, prims = r.get("form", []), r.get("filingDate", []), r.get("accessionNumber", []), r.get("primaryDocument", [])
+    lo = (event_date - timedelta(days=1)).isoformat()
+    hi = (event_date + timedelta(days=7)).isoformat()
+    for form, fdate, acc, prim in zip(forms, dates, accs, prims):
         if form in ("8-K", "6-K") and lo <= fdate <= hi:
-            return f"https://www.sec.gov/Archives/edgar/data/{int(cik)}/{acc.replace('-','')}/{acc}-index.htm"
+            base = f"https://www.sec.gov/Archives/edgar/data/{int(cik)}/{acc.replace('-','')}"
+            # 첨부 문서 중 실적 보도자료(ex-99*.htm)를 찾아 직링크
+            idx = get_json(f"{base}/index.json")
+            if idx:
+                for item in idx.get("directory", {}).get("item", []):
+                    n = item.get("name", "").lower()
+                    if "99" in n and n.endswith((".htm", ".html")):
+                        return f"{base}/{item['name']}"
+            if prim:
+                return f"{base}/{prim}"
+            return f"{base}/{acc}-index.htm"
     return None
 
 def find_transcript(ticker, event_date):
@@ -99,11 +110,19 @@ def main():
                 time.sleep(0.15)
 
         if not e.get("script"):
+            # 1순위: FMP 키가 있으면 스크립트 전문 저장
             path = find_transcript(ticker, edate)
             if path:
                 e["script"] = path
                 changed = True
                 print(f"스크립트 연결: {e['name']} ({ticker})")
+            # 2순위(키 불필요): 발표 확인(IR자료 존재) 시 무료 열람 검색 링크 연결
+            elif e.get("ir"):
+                q = (edate.month + 2) // 3
+                e["script"] = ("https://www.google.com/search?q=" +
+                               f"{ticker}+Q{q}+{edate.year}+earnings+call+transcript")
+                changed = True
+                print(f"Transcript 검색링크 연결: {e['name']} ({ticker})")
 
     if changed:
         cal["updated"] = datetime.now(timezone(timedelta(hours=9))).strftime("%Y-%m-%d %H:%M KST")

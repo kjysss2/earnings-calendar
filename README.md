@@ -13,10 +13,9 @@
 
 `.github/workflows/update.yml`이 3시간마다 실행됩니다.
 
-- **IR자료 버튼**: SEC EDGAR에서 실적발표일 이후 제출된 8-K/6-K 공시(실적 보도자료 포함)를 찾아 자동 연결. API 키 불필요.
-- **스크립트 버튼**: FMP(financialmodelingprep.com) API 키가 있으면 어닝콜 스크립트를 받아 `transcripts/` 폴더에 저장 후 연결.
-  - 저장소 **Settings → Secrets and variables → Actions → New repository secret**에 이름 `FMP_API_KEY`로 등록
-  - 키가 없으면 스크립트 버튼만 생략되고 나머지는 정상 동작
+- **IR자료**: SEC EDGAR에서 실적발표일 이후 제출된 8-K/6-K 안의 실적 보도자료(EX-99)를 찾아 자동 연결. API 키 불필요.
+- **Transcript**: 발표가 확인되면 어닝콜 스크립트 무료 열람 검색 링크가 자동 연결. API 키 불필요.
+  - (선택) FMP Ultimate 플랜 API 키를 `FMP_API_KEY` 시크릿으로 등록하면 스크립트 전문을 `transcripts/` 폴더에 저장해 사이트 안에서 바로 읽을 수 있음
 - 첫 실행은 **Actions 탭 → 실적자료 자동 업데이트 → Run workflow**로 수동 실행 가능
 
 ## 수동 편집
