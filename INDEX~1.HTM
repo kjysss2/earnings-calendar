@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>실적발표 캘린더</title>
+<style>
+  :root{
+    --blue:#1a56a8; --blue-dark:#0d3b78; --red:#d92b2b; --line:#d7dde6;
+    --bg:#f4f6f9; --cell:#ffffff; --before:#eef4fc; --after:#e8f0fa;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;color:#1c2530;font-size:14px}
+  header{background:var(--blue-dark);color:#fff;padding:14px 20px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  header h1{margin:0;font-size:18px}
+  header .sub{font-size:12px;opacity:.8}
+  #updated{margin-left:auto;font-size:12px;opacity:.8}
+  main{padding:16px;max-width:1500px;margin:0 auto}
+  .week{background:var(--cell);border:1px solid var(--line);border-radius:8px;margin-bottom:18px;overflow-x:auto;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+  table{border-collapse:collapse;width:100%;min-width:760px}
+  th,td{border:1px solid var(--line);vertical-align:top;padding:8px 10px}
+  th.date{background:var(--blue);color:#fff;font-size:13px;text-align:left;white-space:nowrap}
+  th.date.today{background:var(--red)}
+  th.rowlab{background:#f0f3f8;color:var(--blue-dark);font-size:12px;width:64px;text-align:center;vertical-align:middle}
+  tr.after-row td{background:var(--after)}
+  tr.before-row td{background:var(--before)}
+  td{width:18%}
+  .co{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:3px 0;line-height:1.5}
+  .co .nm{font-weight:600}
+  .co.hl .nm{color:var(--red)}
+  .btn{display:inline-block;font-size:11px;padding:1px 7px;border-radius:10px;text-decoration:none;border:1px solid transparent;line-height:1.6}
+  .btn.ir{background:#dcebff;color:#0d3b78;border-color:#b9d4f5}
+  .btn.sc{background:#ffe9d6;color:#8a4b00;border-color:#f2cfa8}
+  .btn:hover{filter:brightness(.93)}
+  .legend{font-size:12px;color:#5a6675;margin:0 0 14px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .legend .btn{pointer-events:none}
+  .empty{color:#aab3bf;font-size:12px}
+  footer{text-align:center;color:#8b94a1;font-size:12px;padding:10px 0 30px}
+</style>
+</head>
+<body>
+<header>
+  <h1 id="title">실적발표 캘린더</h1>
+  <span class="sub" id="monthLabel"></span>
+  <span id="updated"></span>
+</header>
+<main>
+  <p class="legend">
+    <span><b style="color:var(--red)">빨간 종목</b> = 주요 관심 종목</span>
+    <span><span class="btn ir">IR자료</span> 실적 발표자료(공시) 업데이트 시 표시</span>
+    <span><span class="btn sc">스크립트</span> 어닝콜 스크립트 업데이트 시 표시</span>
+  </p>
+  <div id="cal"></div>
+</main>
+<footer>자동 업데이트: GitHub Actions · 데이터: data/calendar.json</footer>
+<script>
+const DAYNAMES=["일","월","화","수","목","금","토"];
+
+fetch("data/calendar.json?t="+Date.now()).then(r=>r.json()).then(render);
+
+function render(data){
+  document.getElementById("title").textContent=data.title||"실적발표 캘린더";
+  const [y,m]=data.month.split("-").map(Number);
+  document.getElementById("monthLabel").textContent=y+"년 "+m+"월";
+  if(data.updated) document.getElementById("updated").textContent="마지막 갱신: "+data.updated;
+
+  // group entries by date
+  const byDate={};
+  for(const e of data.entries){ (byDate[e.date] ||= {before:[],after:[]})[e.session||"before"].push(e); }
+
+  // build weeks (Mon-Fri) covering the month
+  const first=new Date(y,m-1,1), last=new Date(y,m,0);
+  let cur=new Date(first); cur.setDate(cur.getDate()-((cur.getDay()+6)%7)); // back to Monday
+  const weeks=[];
+  while(cur<=last){
+    const days=[];
+    for(let i=0;i<5;i++){ const d=new Date(cur); d.setDate(cur.getDate()+i); days.push(d); }
+    if(days.some(d=>d.getMonth()===m-1 && byDate[iso(d)])) weeks.push(days);
+    cur.setDate(cur.getDate()+7);
+  }
+
+  const todayIso=iso(new Date());
+  const cal=document.getElementById("cal");
+  cal.innerHTML="";
+  for(const days of weeks){
+    const t=document.createElement("table");
+    let head="<tr><th class='rowlab'></th>";
+    for(const d of days){
+      const cls=iso(d)===todayIso?"date today":"date";
+      head+=`<th class='${cls}'>${d.getMonth()+1}/${d.getDate()} (${DAYNAMES[d.getDay()]})</th>`;
+    }
+    head+="</tr>";
+    t.innerHTML=head+row("장전","before-row","before",days,byDate)+row("장후","after-row","after",days,byDate);
+    const wrap=document.createElement("div"); wrap.className="week"; wrap.appendChild(t);
+    cal.appendChild(wrap);
+  }
+}
+
+function row(label,cls,session,days,byDate){
+  let html=`<tr class='${cls}'><th class='rowlab'>${label}</th>`;
+  for(const d of days){
+    const list=(byDate[iso(d)]||{})[session]||[];
+    html+="<td>"+(list.length?list.map(coHtml).join(""):"<span class='empty'>-</span>")+"</td>";
+  }
+  return html+"</tr>";
+}
+
+function coHtml(e){
+  const hl=e.hl?" hl":"";
+  let btns="";
+  if(e.ir) btns+=` <a class='btn ir' href='${e.ir}' target='_blank' rel='noopener'>IR자료</a>`;
+  if(e.script) btns+=` <a class='btn sc' href='${e.script}' target='_blank' rel='noopener'>스크립트</a>`;
+  const tick=e.ticker?` title='${e.ticker}'`:"";
+  return `<div class='co${hl}'><span class='nm'${tick}>${e.name}</span>${btns}</div>`;
+}
+
+function iso(d){ return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+</script>
+</body>
+</html>
