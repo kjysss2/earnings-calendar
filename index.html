@@ -6,147 +6,430 @@
 <title>실적발표 캘린더</title>
 <style>
   :root{
-    --blue:#1a56a8; --blue-dark:#0d3b78; --red:#d92b2b; --line:#d7dde6;
-    --bg:#f4f6f9; --cell:#ffffff; --before:#eef4fc; --after:#e8f0fa;
+    --blue:#1a56a8;
+    --blue-dark:#0d3b78;
+    --red:#d92b2b;
+    --line:#d7dde6;
+    --bg:#f4f6f9;
+    --cell:#ffffff;
+    --before:#eef4fc;
+    --after:#e8f0fa;
   }
+
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;color:#1c2530;font-size:14px}
-  header{background:var(--blue-dark);color:#fff;padding:14px 20px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
-  header h1{margin:0;font-size:18px}
-  header .sub{font-size:12px;opacity:.8}
-  #updated{margin-left:auto;font-size:12px;opacity:.8}
-  main{padding:16px;max-width:1500px;margin:0 auto}
-  .week{background:var(--cell);border:1px solid var(--line);border-radius:8px;margin-bottom:18px;overflow-x:auto;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-  table{border-collapse:collapse;width:100%;min-width:760px}
-  th,td{border:1px solid var(--line);vertical-align:top;padding:8px 10px}
-  th.date{background:var(--blue);color:#fff;font-size:13px;text-align:left;white-space:nowrap}
-  th.date.today{background:var(--red)}
-  th.rowlab{background:#f0f3f8;color:var(--blue-dark);font-size:12px;width:64px;text-align:center;vertical-align:middle}
-  tr.after-row td{background:var(--after)}
-  tr.before-row td{background:var(--before)}
-  td{width:18%}
-  .co{padding:2px 0;line-height:1.55}
-  .co .nm{font-weight:600}
-  .co.hl .nm{color:var(--red)}
-  .paren{color:#8b94a1}
-  a.lnk{cursor:pointer;text-decoration:none;font-weight:600}
-  a.lnk.tr{color:#c2570a}
-  a.lnk:hover{text-decoration:underline}
-  .legend{font-size:12px;color:#5a6675;margin:0 0 14px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-  .empty{color:#aab3bf;font-size:12px}
-  footer{text-align:center;color:#8b94a1;font-size:12px;padding:10px 0 30px}
+
+  body{
+    margin:0;
+    background:var(--bg);
+    font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;
+    color:#1c2530;
+    font-size:14px;
+  }
+
+  header{
+    background:var(--blue-dark);
+    color:#fff;
+    padding:14px 20px;
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+
+  header h1{
+    margin:0;
+    font-size:18px;
+  }
+
+  header .sub{
+    font-size:12px;
+    opacity:.85;
+  }
+
+  #updated{
+    margin-left:auto;
+    font-size:12px;
+    opacity:.85;
+  }
+
+  main{
+    padding:16px;
+    max-width:1500px;
+    margin:0 auto;
+  }
+
+  .legend{
+    font-size:12px;
+    color:#5a6675;
+    margin:0 0 14px;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+
+  .week{
+    background:var(--cell);
+    border:1px solid var(--line);
+    border-radius:8px;
+    margin-bottom:18px;
+    overflow-x:auto;
+    box-shadow:0 1px 3px rgba(0,0,0,.06);
+  }
+
+  table{
+    border-collapse:collapse;
+    width:100%;
+    min-width:900px;
+    table-layout:fixed;
+  }
+
+  th,td{
+    border:1px solid var(--line);
+    vertical-align:top;
+    padding:8px 10px;
+  }
+
+  th.date{
+    background:var(--blue);
+    color:#fff;
+    font-size:13px;
+    text-align:left;
+    white-space:nowrap;
+  }
+
+  th.date.today{
+    background:var(--red);
+  }
+
+  th.date.out{
+    opacity:.65;
+  }
+
+  th.rowlab{
+    background:#f0f3f8;
+    color:var(--blue-dark);
+    font-size:12px;
+    width:70px;
+    text-align:center;
+    vertical-align:middle;
+  }
+
+  tr.before-row td{
+    background:var(--before);
+  }
+
+  tr.after-row td{
+    background:var(--after);
+  }
+
+  td{
+    width:calc((100% - 70px) / 5);
+    min-height:100px;
+  }
+
+  .co{
+    padding:2px 0;
+    line-height:1.55;
+    word-break:keep-all;
+  }
+
+  .co .nm{
+    font-weight:600;
+  }
+
+  .co.hl .nm{
+    color:var(--red);
+  }
+
+  .paren{
+    color:#8b94a1;
+  }
+
+  a.lnk{
+    cursor:pointer;
+    text-decoration:none;
+    font-weight:600;
+  }
+
+  a.lnk.tr{
+    color:#c2570a;
+  }
+
+  a.lnk:hover{
+    text-decoration:underline;
+  }
+
+  .empty{
+    color:#aab3bf;
+    font-size:12px;
+  }
+
+  footer{
+    text-align:center;
+    color:#8b94a1;
+    font-size:12px;
+    padding:10px 0 30px;
+  }
 </style>
 </head>
 <body>
+
 <header>
   <h1 id="title">실적발표 캘린더</h1>
-  <span class="sub" id="monthLabel"></span>
+  <span class="sub" id="rangeLabel"></span>
   <span id="updated"></span>
 </header>
+
 <main>
   <p class="legend">
     <span><b style="color:var(--red)">빨간 종목</b> = 주요 관심 종목</span>
-    <span>Transcript는 Notion의 <b>26.2Q 미국 DB</b>에서 연결된 항목만 표시됩니다. 클릭하면 Notion 원문으로 열려요.</span>
+    <span>Transcript는 Notion의 <b>26.2Q 미국 DB</b>에서 연결된 항목만 표시됩니다.</span>
   </p>
   <div id="cal"></div>
 </main>
-<footer>자동 업데이트: GitHub Actions · 데이터: data/calendar.json · Transcript: Notion 26.2Q 미국 DB</footer>
+
+<footer>
+  자동 업데이트: GitHub Actions · 일정: data/calendar.json · Transcript: Notion 26.2Q 미국 DB
+</footer>
+
 <script>
 const DAYNAMES=["일","월","화","수","목","금","토"];
 const TRANSCRIPT_DATA_URL="data/notion-transcripts.json";
 let notionTranscripts={};
 
-async function loadJson(url, fallback=null){
+async function loadJson(url,fallback=null){
   const response=await fetch(url+"?t="+Date.now());
+
   if(!response.ok){
     if(fallback!==null) return fallback;
     throw new Error(`HTTP ${response.status}`);
   }
+
   return response.json();
 }
 
 function normalizeTranscriptLinks(links={}){
   const normalized={};
+
   for(const [ticker,url] of Object.entries(links||{})){
-    if(ticker && url) normalized[String(ticker).toUpperCase()]=url;
+    if(ticker && url){
+      normalized[String(ticker).toUpperCase()]=url;
+    }
   }
+
   return normalized;
 }
 
 function isNotionUrl(url){
-  return /^https:\/\/(app\.)?notion\.com\//i.test(url||"") || /^https:\/\/(www\.)?notion\.so\//i.test(url||"");
+  return /^https:\/\/(app\.)?notion\.com\//i.test(url||"")
+    || /^https:\/\/(www\.)?notion\.so\//i.test(url||"");
 }
 
-function transcriptUrl(e){
-  const ticker=(e.ticker||"").toUpperCase();
-  if(ticker && notionTranscripts[ticker]) return notionTranscripts[ticker];
-  return isNotionUrl(e.script) ? e.script : null;
+function transcriptUrl(entry){
+  const ticker=(entry.ticker||"").toUpperCase();
+
+  if(ticker && notionTranscripts[ticker]){
+    return notionTranscripts[ticker];
+  }
+
+  return isNotionUrl(entry.script) ? entry.script : null;
+}
+
+function parseIso(value){
+  const [year,month,day]=String(value).split("-").map(Number);
+  return new Date(year,month-1,day);
+}
+
+function iso(date){
+  return date.getFullYear()
+    +"-"+String(date.getMonth()+1).padStart(2,"0")
+    +"-"+String(date.getDate()).padStart(2,"0");
+}
+
+function addDays(date,days){
+  const result=new Date(date);
+  result.setDate(result.getDate()+days);
+  return result;
+}
+
+function mondayOf(date){
+  const result=new Date(date);
+  const offset=(result.getDay()+6)%7;
+  result.setDate(result.getDate()-offset);
+  return result;
+}
+
+function formatRange(start,end){
+  if(start.getFullYear()===end.getFullYear()){
+    return `${start.getFullYear()}년 ${start.getMonth()+1}월 ${start.getDate()}일 ~ ${end.getMonth()+1}월 ${end.getDate()}일`;
+  }
+
+  return `${start.getFullYear()}년 ${start.getMonth()+1}월 ${start.getDate()}일 ~ ${end.getFullYear()}년 ${end.getMonth()+1}월 ${end.getDate()}일`;
+}
+
+function escapeHtml(value){
+  return String(value??"")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+function safeUrl(value){
+  try{
+    const url=new URL(value);
+    return ["https:","http:"].includes(url.protocol) ? url.href : "#";
+  }catch{
+    return "#";
+  }
 }
 
 Promise.all([
   loadJson("data/calendar.json"),
   loadJson(TRANSCRIPT_DATA_URL,{links:{}})
-]).then(([data, transcriptData])=>{
+]).then(([data,transcriptData])=>{
   notionTranscripts=normalizeTranscriptLinks(transcriptData.links);
   render(data);
 }).catch(error=>{
-  document.getElementById("cal").innerHTML=`<p class="empty">데이터를 불러오지 못했습니다. ${error.message}</p>`;
+  document.getElementById("cal").innerHTML=
+    `<p class="empty">데이터를 불러오지 못했습니다. ${escapeHtml(error.message)}</p>`;
 });
 
 function render(data){
-  document.getElementById("title").textContent=data.title||"실적발표 캘린더";
-  const [y,m]=data.month.split("-").map(Number);
-  document.getElementById("monthLabel").textContent=y+"년 "+m+"월";
-  if(data.updated) document.getElementById("updated").textContent="마지막 갱신: "+data.updated;
+  const entries=Array.isArray(data.entries) ? data.entries : [];
+
+  if(!entries.length){
+    document.getElementById("cal").innerHTML=
+      "<p class='empty'>표시할 일정이 없습니다.</p>";
+    return;
+  }
+
+  document.getElementById("title").textContent=
+    data.title||"실적발표 캘린더";
+
+  const allDates=entries
+    .map(item=>item.date)
+    .filter(Boolean)
+    .sort();
+
+  const start=parseIso(data.startDate||allDates[0]);
+  const end=parseIso(data.endDate||allDates[allDates.length-1]);
+
+  document.getElementById("rangeLabel").textContent=
+    formatRange(start,end);
+
+  if(data.updated){
+    document.getElementById("updated").textContent=
+      "마지막 갱신: "+data.updated;
+  }
 
   const byDate={};
-  for(const e of data.entries){ (byDate[e.date] ||= {before:[],after:[]})[e.session||"before"].push(e); }
 
-  const first=new Date(y,m-1,1), last=new Date(y,m,0);
-  let cur=new Date(first); cur.setDate(cur.getDate()-((cur.getDay()+6)%7));
+  for(const entry of entries){
+    if(!entry.date) continue;
+
+    if(!byDate[entry.date]){
+      byDate[entry.date]={before:[],after:[]};
+    }
+
+    const session=entry.session==="after" ? "after" : "before";
+    byDate[entry.date][session].push(entry);
+  }
+
   const weeks=[];
-  while(cur<=last){
+  let cursor=mondayOf(start);
+
+  while(cursor<=end){
     const days=[];
-    for(let i=0;i<5;i++){ const d=new Date(cur); d.setDate(cur.getDate()+i); days.push(d); }
-    if(days.some(d=>d.getMonth()===m-1 && byDate[iso(d)])) weeks.push(days);
-    cur.setDate(cur.getDate()+7);
+
+    for(let index=0;index<5;index++){
+      days.push(addDays(cursor,index));
+    }
+
+    weeks.push(days);
+    cursor=addDays(cursor,7);
   }
 
   const todayIso=iso(new Date());
+  const startIso=iso(start);
+  const endIso=iso(end);
   const cal=document.getElementById("cal");
   cal.innerHTML="";
+
   for(const days of weeks){
-    const t=document.createElement("table");
-    let head="<tr><th class='rowlab'></th>";
-    for(const d of days){
-      const cls=iso(d)===todayIso?"date today":"date";
-      head+=`<th class='${cls}'>${d.getMonth()+1}/${d.getDate()} (${DAYNAMES[d.getDay()]})</th>`;
+    const table=document.createElement("table");
+
+    let header="<tr><th class='rowlab'></th>";
+
+    for(const day of days){
+      const dayIso=iso(day);
+      const classes=["date"];
+
+      if(dayIso===todayIso){
+        classes.push("today");
+      }
+
+      if(dayIso<startIso || dayIso>endIso){
+        classes.push("out");
+      }
+
+      header+=`<th class="${classes.join(" ")}">${day.getMonth()+1}/${day.getDate()} (${DAYNAMES[day.getDay()]})</th>`;
     }
-    head+="</tr>";
-    t.innerHTML=head+row("장전","before-row","before",days,byDate)+row("장후","after-row","after",days,byDate);
-    const wrap=document.createElement("div"); wrap.className="week"; wrap.appendChild(t);
-    cal.appendChild(wrap);
+
+    header+="</tr>";
+
+    table.innerHTML=
+      header
+      +row("장전","before-row","before",days,byDate,startIso,endIso)
+      +row("장후","after-row","after",days,byDate,startIso,endIso);
+
+    const wrapper=document.createElement("div");
+    wrapper.className="week";
+    wrapper.appendChild(table);
+    cal.appendChild(wrapper);
   }
 }
 
-function row(label,cls,session,days,byDate){
-  let html=`<tr class='${cls}'><th class='rowlab'>${label}</th>`;
-  for(const d of days){
-    const list=(byDate[iso(d)]||{})[session]||[];
-    html+="<td>"+(list.length?list.map(coHtml).join(""):"<span class='empty'>-</span>")+"</td>";
+function row(label,className,session,days,byDate,startIso,endIso){
+  let html=`<tr class="${className}"><th class="rowlab">${label}</th>`;
+
+  for(const day of days){
+    const dayIso=iso(day);
+
+    if(dayIso<startIso || dayIso>endIso){
+      html+="<td><span class='empty'>-</span></td>";
+      continue;
+    }
+
+    const list=(byDate[dayIso]||{})[session]||[];
+
+    html+="<td>"
+      +(list.length
+        ? list.map(companyHtml).join("")
+        : "<span class='empty'>-</span>")
+      +"</td>";
   }
+
   return html+"</tr>";
 }
 
-function coHtml(e){
-  const hl=e.hl?" hl":"";
-  const tr=transcriptUrl(e);
-  const links=tr?` <span class='paren'>(</span><a class='lnk tr' href='${tr}' target='_blank' rel='noopener'>Transcript</a><span class='paren'>)</span>`:"";
-  const tick=e.ticker?` title='${e.ticker}'`:"";
-  return `<div class='co${hl}'><span class='nm'${tick}>${e.name}</span>${links}</div>`;
-}
+function companyHtml(entry){
+  const highlight=entry.hl ? " hl" : "";
+  const transcript=transcriptUrl(entry);
+  const name=escapeHtml(entry.name||entry.ticker||"");
+  const ticker=escapeHtml(entry.ticker||"");
 
-function iso(d){ return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+  const link=transcript
+    ? ` <span class="paren">(</span><a class="lnk tr" href="${safeUrl(transcript)}" target="_blank" rel="noopener">Transcript</a><span class="paren">)</span>`
+    : "";
+
+  const title=ticker ? ` title="${ticker}"` : "";
+
+  return `<div class="co${highlight}"><span class="nm"${title}>${name}</span>${link}</div>`;
+}
 </script>
+
 </body>
 </html>
