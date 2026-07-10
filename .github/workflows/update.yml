@@ -2,7 +2,7 @@ name: Transcript 링크 자동 업데이트
 
 on:
   schedule:
-    # UTC 기준 매시 7분, 37분 = 30분 간격
+    # 매시간 7분, 37분에 실행 = 30분 간격
     - cron: "7,37 * * * *"
   workflow_dispatch:
 
@@ -16,10 +16,10 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
 
     steps:
-      - name: 저장소 가져오기
+      - name: 저장소 불러오기
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -29,31 +29,25 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Notion 설정 확인
+      - name: NOTION_TOKEN 확인
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
         run: |
           if [ -z "$NOTION_TOKEN" ]; then
-            echo "::error::GitHub Secret NOTION_TOKEN이 없습니다."
-            exit 1
-          fi
-
-          if [ -z "$NOTION_DATABASE_ID" ]; then
-            echo "::error::GitHub Secret NOTION_DATABASE_ID가 없습니다."
+            echo "::error::GitHub Actions Secret에 NOTION_TOKEN이 없습니다."
             exit 1
           fi
 
       - name: Notion Transcript 링크 업데이트
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+          NOTION_DATABASE_ID: d2c2cff2-91cc-82ac-ac28-0153506c607c
         run: python scripts/update_links.py
 
-      - name: 변경사항 커밋
+      - name: 변경사항 저장
         run: |
           if git diff --quiet -- data/notion-transcripts.json; then
-            echo "Transcript 링크 변경 없음"
+            echo "변경된 Transcript 링크가 없습니다."
             exit 0
           fi
 
@@ -64,4 +58,4 @@ jobs:
           git commit -m "자동 업데이트: Notion Transcript 링크"
 
           git pull --rebase origin main
-          git push origin main
+          git push origin HEAD:main
