@@ -1,9 +1,9 @@
-name: 실적자료 자동 업데이트
+name: Transcript 링크 자동 업데이트
 
 on:
   schedule:
-    - cron: "0 */3 * * *"   # 3시간마다 확인
-  workflow_dispatch:         # 수동 실행 버튼
+    - cron: "0 */3 * * *"
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -18,15 +18,16 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: 링크 업데이트 실행
+      - name: Notion Transcript 링크 업데이트
         env:
-          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: d2c2cff2-91cc-82ac-ac28-0153506c607c
         run: python scripts/update_links.py
 
       - name: 변경사항 커밋
         run: |
           git config user.name "earnings-bot"
           git config user.email "actions@github.com"
-          git add -A
-          git diff --cached --quiet || git commit -m "자동 업데이트: IR자료/스크립트 링크"
+          git add data/notion-transcripts.json
+          git diff --cached --quiet || git commit -m "자동 업데이트: Notion Transcript 링크"
           git push
