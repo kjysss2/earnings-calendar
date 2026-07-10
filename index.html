@@ -30,11 +30,9 @@
   .co.hl .nm{color:var(--red)}
   .paren{color:#8b94a1}
   a.lnk{cursor:pointer;text-decoration:none;font-weight:600}
-  a.lnk.ir{color:#0d6efd}
   a.lnk.tr{color:#c2570a}
   a.lnk:hover{text-decoration:underline}
   .legend{font-size:12px;color:#5a6675;margin:0 0 14px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-  .legend .btn{pointer-events:none}
   .empty{color:#aab3bf;font-size:12px}
   footer{text-align:center;color:#8b94a1;font-size:12px;padding:10px 0 30px}
 </style>
@@ -48,34 +46,52 @@
 <main>
   <p class="legend">
     <span><b style="color:var(--red)">빨간 종목</b> = 주요 관심 종목</span>
-    <span>발표 후 자료가 확인되면 종목명 옆에 <b style="color:#0d6efd">IR자료</b>, <b style="color:#c2570a">Transcript</b>가 자동으로 나타납니다. 클릭하면 바로 열려요.</span>
+    <span>Transcript는 Notion의 <b>26.2Q 미국 DB</b>에서 연결된 항목만 표시됩니다. 클릭하면 Notion 원문으로 열려요.</span>
   </p>
   <div id="cal"></div>
 </main>
-<footer>자동 업데이트: GitHub Actions · 데이터: data/calendar.json</footer>
+<footer>자동 업데이트: GitHub Actions · 데이터: data/calendar.json · Transcript: Notion 26.2Q 미국 DB</footer>
 <script>
 const DAYNAMES=["일","월","화","수","목","금","토"];
-// fiscal.ai 거래소 코드 (Transcript 링크용)
-const FA={PEP:"NasdaqGS",DAL:"NYSE",FAST:"NasdaqGS",ERIC:"NasdaqGS",C:"NYSE",GS:"NYSE",WFC:"NYSE",BAC:"NYSE",JPM:"NYSE",
-ASML:"NasdaqGS",MS:"NYSE",BLK:"NYSE",PGR:"NYSE",JNJ:"NYSE",TSM:"NYSE",GE:"NYSE",UNH:"NYSE",USB:"NYSE",SDVKY:"OTCPK",
-DPZ:"NYSE",VECO:"NasdaqGS",DHR:"NYSE",NOC:"NYSE",SCHW:"NYSE",GM:"NYSE",VMI:"NYSE",GEV:"NYSE",PM:"NYSE",T:"NYSE",
-NOK:"NYSE",STM:"NYSE",ARGX:"NasdaqGS",TMUS:"NasdaqGS",LMT:"NYSE",RTX:"NYSE",CLF:"NYSE",AXP:"NYSE",VZ:"NYSE",BAH:"NYSE",
-BKR:"NasdaqGS",AZN:"NasdaqGS",GLW:"NYSE",PYPL:"NasdaqGS",KO:"NYSE",BA:"NYSE",DINO:"NYSE",APH:"NYSE",UMC:"NYSE",
-GRMN:"NYSE",SOFI:"NasdaqGS",TE:"NYSE",FTI:"NYSE",STLA:"NYSE",YUM:"NYSE",SNY:"NasdaqGS",REGN:"NasdaqGS",PBF:"NYSE",
-ABBV:"NYSE",CVX:"NYSE",LIN:"NasdaqGS",AEHR:"NasdaqCM",UAL:"NasdaqGS",NFLX:"NasdaqGS",AA:"NYSE",ISRG:"NasdaqGS",
-STLD:"NasdaqGS",AIR:"NYSE",TSLA:"NasdaqGS",IBM:"NYSE",TXN:"NasdaqGS",NOW:"NYSE",INTC:"NasdaqGS",MXL:"NasdaqGS",
-SAP:"NYSE",AMKR:"NasdaqGS",NVTS:"NasdaqGM",RMBS:"NasdaqGS",FFIV:"NasdaqGS",BE:"NYSE",NXPI:"NasdaqGS",F:"NYSE",
-ENPH:"NasdaqGM",SFM:"NasdaqGS",V:"NYSE",MSFT:"NasdaqGS",ARM:"NasdaqGS",LRCX:"NasdaqGS",FORM:"NasdaqGS",FTAI:"NasdaqGS",
-HOOD:"NasdaqGS",MGM:"NYSE",CVNA:"NYSE",FTNT:"NasdaqGS",EQIX:"NasdaqGS",LHX:"NYSE",AUR:"NasdaqGS",AAPL:"NasdaqGS",
-AXTI:"NasdaqGS",RIVN:"NasdaqGS"};
-// 미 동부 기준 오늘 날짜
-const TODAY=new Date().toLocaleDateString("en-CA",{timeZone:"America/New_York"});
-function fiscalUrl(ticker){
-  const ex=FA[ticker];
-  return ex?`https://fiscal.ai/company/${ex}-${ticker}/investor-relations/`:null;
+const TRANSCRIPT_DATA_URL="data/notion-transcripts.json";
+let notionTranscripts={};
+
+async function loadJson(url, fallback=null){
+  const response=await fetch(url+"?t="+Date.now());
+  if(!response.ok){
+    if(fallback!==null) return fallback;
+    throw new Error(`HTTP ${response.status}`);
+  }
+  return response.json();
 }
 
-fetch("data/calendar.json?t="+Date.now()).then(r=>r.json()).then(render);
+function normalizeTranscriptLinks(links={}){
+  const normalized={};
+  for(const [ticker,url] of Object.entries(links||{})){
+    if(ticker && url) normalized[String(ticker).toUpperCase()]=url;
+  }
+  return normalized;
+}
+
+function isNotionUrl(url){
+  return /^https:\/\/(app\.)?notion\.com\//i.test(url||"") || /^https:\/\/(www\.)?notion\.so\//i.test(url||"");
+}
+
+function transcriptUrl(e){
+  const ticker=(e.ticker||"").toUpperCase();
+  if(ticker && notionTranscripts[ticker]) return notionTranscripts[ticker];
+  return isNotionUrl(e.script) ? e.script : null;
+}
+
+Promise.all([
+  loadJson("data/calendar.json"),
+  loadJson(TRANSCRIPT_DATA_URL,{links:{}})
+]).then(([data, transcriptData])=>{
+  notionTranscripts=normalizeTranscriptLinks(transcriptData.links);
+  render(data);
+}).catch(error=>{
+  document.getElementById("cal").innerHTML=`<p class="empty">데이터를 불러오지 못했습니다. ${error.message}</p>`;
+});
 
 function render(data){
   document.getElementById("title").textContent=data.title||"실적발표 캘린더";
@@ -83,13 +99,11 @@ function render(data){
   document.getElementById("monthLabel").textContent=y+"년 "+m+"월";
   if(data.updated) document.getElementById("updated").textContent="마지막 갱신: "+data.updated;
 
-  // group entries by date
   const byDate={};
   for(const e of data.entries){ (byDate[e.date] ||= {before:[],after:[]})[e.session||"before"].push(e); }
 
-  // build weeks (Mon-Fri) covering the month
   const first=new Date(y,m-1,1), last=new Date(y,m,0);
-  let cur=new Date(first); cur.setDate(cur.getDate()-((cur.getDay()+6)%7)); // back to Monday
+  let cur=new Date(first); cur.setDate(cur.getDate()-((cur.getDay()+6)%7));
   const weeks=[];
   while(cur<=last){
     const days=[];
@@ -126,13 +140,8 @@ function row(label,cls,session,days,byDate){
 
 function coHtml(e){
   const hl=e.hl?" hl":"";
-  const parts=[];
-  if(e.ir) parts.push(`<a class='lnk ir' href='${e.ir}' target='_blank' rel='noopener'>IR자료</a>`);
-  // Transcript: 수동/자동 링크가 있으면 그것을, 없으면 발표일이 지난 종목은 fiscal.ai 종목 페이지로 연결
-  let tr=e.script;
-  if(!tr && e.ticker && e.date<=TODAY) tr=fiscalUrl(e.ticker);
-  if(tr) parts.push(`<a class='lnk tr' href='${tr}' target='_blank' rel='noopener'>Transcript</a>`);
-  const links=parts.length?` <span class='paren'>(</span>${parts.join("<span class='paren'>, </span>")}<span class='paren'>)</span>`:"";
+  const tr=transcriptUrl(e);
+  const links=tr?` <span class='paren'>(</span><a class='lnk tr' href='${tr}' target='_blank' rel='noopener'>Transcript</a><span class='paren'>)</span>`:"";
   const tick=e.ticker?` title='${e.ticker}'`:"";
   return `<div class='co${hl}'><span class='nm'${tick}>${e.name}</span>${links}</div>`;
 }
