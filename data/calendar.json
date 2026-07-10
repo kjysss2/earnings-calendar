@@ -3,6 +3,8 @@
   "startDate": "2026-07-13",
   "endDate": "2026-08-14",
   "entries": [
+    {"date": "2026-07-09", "session": "before", "name": "펩시코", "ticker": "PEP"},
+    {"date": "2026-07-10", "session": "before", "name": "델타에어라인", "ticker": "DAL"}
     {"date": "2026-07-13", "session": "before", "name": "패스널", "ticker": "FAST"},
     {"date": "2026-07-14", "session": "before", "name": "에릭슨", "ticker": "ERIC", "hl": true},
     {"date": "2026-07-14", "session": "before", "name": "시티그룹", "ticker": "C"},
