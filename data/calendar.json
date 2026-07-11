@@ -4,6 +4,13 @@
   "endDate": "2026-09-18",
   "entries": [
     {
+  "date": "2026-07-07",
+  "session": "after",
+  "name": "펭귄솔루션스",
+  "ticker": "PENG",
+  "hl": true
+    },  
+    {
       "date": "2026-07-09",
       "session": "before",
       "name": "펩시코",
