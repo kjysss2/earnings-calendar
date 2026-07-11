@@ -2,7 +2,8 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d3b78">
 <title>실적발표 캘린더</title>
 <style>
   :root{
@@ -14,42 +15,72 @@
     --cell:#ffffff;
     --before:#eef4fc;
     --after:#e8f0fa;
+    --tba:#f7f3e8;
+    --text:#1c2530;
+    --muted:#667085;
   }
 
   *{box-sizing:border-box}
 
+  html{
+    -webkit-text-size-adjust:100%;
+    scroll-behavior:smooth;
+  }
+
   body{
     margin:0;
     background:var(--bg);
-    font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;
-    color:#1c2530;
+    font-family:'Malgun Gothic','Apple SD Gothic Neo',system-ui,sans-serif;
+    color:var(--text);
     font-size:14px;
   }
 
   header{
     background:var(--blue-dark);
     color:#fff;
-    padding:14px 20px;
+    padding:14px max(16px,env(safe-area-inset-right)) 14px max(16px,env(safe-area-inset-left));
     display:flex;
-    align-items:baseline;
+    align-items:center;
     gap:12px;
     flex-wrap:wrap;
+  }
+
+  .header-title{
+    min-width:0;
   }
 
   header h1{
     margin:0;
     font-size:18px;
+    line-height:1.3;
   }
 
   header .sub{
+    display:block;
+    margin-top:3px;
     font-size:12px;
-    opacity:.85;
+    opacity:.86;
   }
 
   #updated{
     margin-left:auto;
     font-size:12px;
-    opacity:.85;
+    opacity:.86;
+    white-space:nowrap;
+  }
+
+  #todayButton{
+    display:none;
+    border:1px solid rgba(255,255,255,.45);
+    border-radius:999px;
+    background:rgba(255,255,255,.12);
+    color:#fff;
+    padding:7px 11px;
+    font:inherit;
+    font-size:12px;
+    font-weight:700;
+    cursor:pointer;
+    touch-action:manipulation;
   }
 
   main{
@@ -71,10 +102,11 @@
   .week{
     background:var(--cell);
     border:1px solid var(--line);
-    border-radius:8px;
+    border-radius:10px;
     margin-bottom:18px;
     overflow-x:auto;
     box-shadow:0 1px 3px rgba(0,0,0,.06);
+    scroll-margin-top:12px;
   }
 
   table{
@@ -115,17 +147,9 @@
     vertical-align:middle;
   }
 
-  tr.before-row td{
-    background:var(--before);
-  }
-
-  tr.after-row td{
-    background:var(--after);
-  }
-
-  tr.tba-row td{
-    background:#f7f3e8;
-  }
+  tr.before-row td{background:var(--before)}
+  tr.after-row td{background:var(--after)}
+  tr.tba-row td{background:var(--tba)}
 
   td{
     width:calc((100% - 70px) / 5);
@@ -133,13 +157,14 @@
   }
 
   .co{
-    padding:2px 0;
-    line-height:1.55;
+    padding:3px 0;
+    line-height:1.5;
     word-break:keep-all;
+    overflow-wrap:anywhere;
   }
 
   .co .nm{
-    font-weight:600;
+    font-weight:650;
   }
 
   .co.hl .nm{
@@ -153,11 +178,11 @@
   a.lnk{
     cursor:pointer;
     text-decoration:none;
-    font-weight:600;
+    font-weight:700;
   }
 
   a.lnk.tr{
-    color:#c2570a;
+    color:#b84d00;
   }
 
   a.lnk:hover{
@@ -169,19 +194,225 @@
     font-size:12px;
   }
 
+  .mobile-calendar{
+    display:none;
+  }
+
   footer{
     text-align:center;
     color:#8b94a1;
     font-size:12px;
-    padding:10px 0 30px;
+    padding:10px 16px calc(30px + env(safe-area-inset-bottom));
+  }
+
+  @media (max-width: 760px){
+    body{
+      font-size:15px;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      padding-top:calc(10px + env(safe-area-inset-top));
+      padding-bottom:10px;
+      box-shadow:0 2px 8px rgba(0,0,0,.16);
+    }
+
+    .header-title{
+      flex:1 1 210px;
+    }
+
+    header h1{
+      font-size:17px;
+    }
+
+    header .sub{
+      font-size:11px;
+      line-height:1.35;
+    }
+
+    #updated{
+      order:3;
+      width:100%;
+      margin-left:0;
+      font-size:11px;
+    }
+
+    #todayButton{
+      display:none;
+      min-height:36px;
+    }
+
+    main{
+      padding:10px;
+    }
+
+    .legend{
+      margin:0 2px 10px;
+      gap:6px 10px;
+      font-size:11px;
+      line-height:1.4;
+    }
+
+    .legend span:nth-child(2),
+    .legend span:nth-child(3){
+      display:none;
+    }
+
+    .desktop-calendar{
+      display:none;
+    }
+
+    .mobile-calendar{
+      display:block;
+    }
+
+    .mobile-week{
+      margin:0 0 16px;
+    }
+
+    .mobile-week-title{
+      margin:0 2px 8px;
+      color:var(--blue-dark);
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .day-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:12px;
+      margin-bottom:10px;
+      overflow:hidden;
+      box-shadow:0 1px 4px rgba(0,0,0,.06);
+      scroll-margin-top:92px;
+    }
+
+    .day-card.today{
+      border:2px solid var(--red);
+    }
+
+    .day-head{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      background:var(--blue);
+      color:#fff;
+      font-weight:800;
+      font-size:15px;
+    }
+
+    .day-card.today .day-head{
+      background:var(--red);
+    }
+
+    .today-badge{
+      margin-left:auto;
+      padding:3px 7px;
+      border-radius:999px;
+      background:rgba(255,255,255,.2);
+      font-size:11px;
+    }
+
+    .session{
+      display:grid;
+      grid-template-columns:68px minmax(0,1fr);
+      border-top:1px solid var(--line);
+    }
+
+    .session:first-of-type{
+      border-top:0;
+    }
+
+    .session-label{
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:12px 6px;
+      color:var(--blue-dark);
+      font-size:12px;
+      font-weight:800;
+      text-align:center;
+    }
+
+    .session.before .session-label,
+    .session.before .session-list{
+      background:var(--before);
+    }
+
+    .session.after .session-label,
+    .session.after .session-list{
+      background:var(--after);
+    }
+
+    .session.tba .session-label,
+    .session.tba .session-list{
+      background:var(--tba);
+    }
+
+    .session-list{
+      min-width:0;
+      padding:8px 10px;
+      border-left:1px solid var(--line);
+    }
+
+    .session-list .co{
+      display:flex;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:4px;
+      min-height:34px;
+      padding:5px 0;
+      border-bottom:1px dashed rgba(102,112,133,.22);
+      font-size:15px;
+    }
+
+    .session-list .co:last-child{
+      border-bottom:0;
+    }
+
+    .session-list .empty{
+      display:block;
+      padding:8px 0;
+    }
+
+    a.lnk.tr{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:30px;
+      margin-left:2px;
+      padding:4px 8px;
+      border:1px solid rgba(184,77,0,.3);
+      border-radius:999px;
+      background:#fff7f0;
+      font-size:12px;
+      line-height:1;
+      touch-action:manipulation;
+    }
+
+    .session-list .paren{
+      display:none;
+    }
+
+    footer{
+      padding-top:4px;
+      font-size:10px;
+      line-height:1.5;
+    }
   }
 </style>
 </head>
 <body>
 
 <header>
-  <h1 id="title">실적발표 캘린더</h1>
-  <span class="sub" id="rangeLabel"></span>
+  <div class="header-title">
+    <h1 id="title">실적발표 캘린더</h1>
+    <span class="sub" id="rangeLabel"></span>
+  </div>
+  <button type="button" id="todayButton">오늘 일정</button>
   <span id="updated"></span>
 </header>
 
@@ -189,9 +420,11 @@
   <p class="legend">
     <span><b style="color:var(--red)">빨간 종목</b> = 주요 관심 종목</span>
     <span>Transcript는 Notion의 <b>26.2Q 미국 DB</b>에서 연결된 항목만 표시됩니다.</span>
-    <span>발표 시간이 확정되지 않은 회사는 <b>시간미정</b> 행에 표시됩니다.</span>
+    <span>발표 시간이 확정되지 않은 회사는 <b>시간미정</b>에 표시됩니다.</span>
   </p>
-  <div id="cal"></div>
+
+  <div id="desktopCal" class="desktop-calendar"></div>
+  <div id="mobileCal" class="mobile-calendar"></div>
 </main>
 
 <footer>
@@ -298,16 +531,18 @@ Promise.all([
   notionTranscripts=normalizeTranscriptLinks(transcriptData.links);
   render(data);
 }).catch(error=>{
-  document.getElementById("cal").innerHTML=
-    `<p class="empty">데이터를 불러오지 못했습니다. ${escapeHtml(error.message)}</p>`;
+  const message=`<p class="empty">데이터를 불러오지 못했습니다. ${escapeHtml(error.message)}</p>`;
+  document.getElementById("desktopCal").innerHTML=message;
+  document.getElementById("mobileCal").innerHTML=message;
 });
 
 function render(data){
   const entries=Array.isArray(data.entries) ? data.entries : [];
 
   if(!entries.length){
-    document.getElementById("cal").innerHTML=
-      "<p class='empty'>표시할 일정이 없습니다.</p>";
+    const message="<p class='empty'>표시할 일정이 없습니다.</p>";
+    document.getElementById("desktopCal").innerHTML=message;
+    document.getElementById("mobileCal").innerHTML=message;
     return;
   }
 
@@ -344,6 +579,7 @@ function render(data){
       : entry.session==="tba"
         ? "tba"
         : "before";
+
     byDate[entry.date][session].push(entry);
   }
 
@@ -372,10 +608,16 @@ function render(data){
     cursor=addDays(cursor,7);
   }
 
+  renderDesktop(weeks,byDate,start,end);
+  renderMobile(weeks,byDate,start,end);
+  setupTodayButton(start,end);
+}
+
+function renderDesktop(weeks,byDate,start,end){
   const todayIso=iso(new Date());
   const startIso=iso(start);
   const endIso=iso(end);
-  const cal=document.getElementById("cal");
+  const cal=document.getElementById("desktopCal");
   cal.innerHTML="";
 
   for(const days of weeks){
@@ -413,9 +655,101 @@ function render(data){
 
     const wrapper=document.createElement("div");
     wrapper.className="week";
+    wrapper.dataset.days=days.map(iso).join(",");
     wrapper.appendChild(table);
     cal.appendChild(wrapper);
   }
+}
+
+function renderMobile(weeks,byDate,start,end){
+  const todayIso=iso(new Date());
+  const startIso=iso(start);
+  const endIso=iso(end);
+  const cal=document.getElementById("mobileCal");
+  cal.innerHTML="";
+
+  for(const days of weeks){
+    const visibleDays=days.filter(day=>{
+      const dayIso=iso(day);
+      if(dayIso<startIso || dayIso>endIso) return false;
+
+      const dayData=byDate[dayIso]||{};
+      return ["before","after","tba"].some(key=>
+        Array.isArray(dayData[key]) && dayData[key].length>0
+      );
+    });
+
+    if(!visibleDays.length) continue;
+
+    const week=document.createElement("section");
+    week.className="mobile-week";
+
+    const monday=days[0];
+    const friday=days[4];
+    week.innerHTML=`<h2 class="mobile-week-title">${monday.getMonth()+1}/${monday.getDate()} ~ ${friday.getMonth()+1}/${friday.getDate()}</h2>`;
+
+    for(const day of visibleDays){
+      const dayIso=iso(day);
+      const dayData=byDate[dayIso]||{before:[],after:[],tba:[]};
+      const card=document.createElement("article");
+      card.id=`day-${dayIso}`;
+      card.className="day-card"+(dayIso===todayIso ? " today" : "");
+
+      let html=`<div class="day-head">
+        <span>${day.getMonth()+1}월 ${day.getDate()}일 (${DAYNAMES[day.getDay()]})</span>
+        ${dayIso===todayIso ? '<span class="today-badge">오늘</span>' : ''}
+      </div>`;
+
+      html+=mobileSession("장전","before",dayData.before||[]);
+      html+=mobileSession("장후","after",dayData.after||[]);
+
+      if(Array.isArray(dayData.tba) && dayData.tba.length){
+        html+=mobileSession("시간미정","tba",dayData.tba);
+      }
+
+      card.innerHTML=html;
+      week.appendChild(card);
+    }
+
+    cal.appendChild(week);
+  }
+}
+
+function mobileSession(label,session,list){
+  return `<div class="session ${session}">
+    <div class="session-label">${label}</div>
+    <div class="session-list">
+      ${list.length ? list.map(companyHtml).join("") : "<span class='empty'>-</span>"}
+    </div>
+  </div>`;
+}
+
+function setupTodayButton(start,end){
+  const button=document.getElementById("todayButton");
+  const todayIso=iso(new Date());
+  const inRange=todayIso>=iso(start) && todayIso<=iso(end);
+
+  if(!inRange){
+    button.style.display="none";
+    return;
+  }
+
+  button.style.display="inline-flex";
+  button.onclick=()=>{
+    const mobileTarget=document.getElementById(`day-${todayIso}`);
+
+    if(window.matchMedia("(max-width: 760px)").matches && mobileTarget){
+      mobileTarget.scrollIntoView({behavior:"smooth",block:"start"});
+      return;
+    }
+
+    const desktopTarget=[...document.querySelectorAll(".week")]
+      .find(item=>(item.dataset.days||"").split(",").includes(todayIso));
+
+    if(desktopTarget){
+      desktopTarget.scrollIntoView({behavior:"smooth",block:"start"});
+    }
+  };
 }
 
 function row(label,className,session,days,byDate,startIso,endIso){
