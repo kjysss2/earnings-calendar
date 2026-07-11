@@ -1,7 +1,7 @@
 {
   "title": "미국 잠정실적발표 일정 (변동 가능)",
   "startDate": "2026-07-09",
-  "endDate": "2026-08-14",
+  "endDate": "2026-09-18",
   "entries": [
     {
       "date": "2026-07-09",
@@ -24,15 +24,8 @@
     {
       "date": "2026-07-14",
       "session": "before",
-      "name": "에릭슨",
-      "ticker": "ERIC",
-      "hl": true
-    },
-    {
-      "date": "2026-07-14",
-      "session": "before",
-      "name": "시티그룹",
-      "ticker": "C"
+      "name": "JP모건",
+      "ticker": "JPM"
     },
     {
       "date": "2026-07-14",
@@ -43,20 +36,27 @@
     {
       "date": "2026-07-14",
       "session": "before",
-      "name": "웰스파고",
-      "ticker": "WFC"
-    },
-    {
-      "date": "2026-07-14",
-      "session": "before",
       "name": "뱅크오브아메리카",
       "ticker": "BAC"
     },
     {
       "date": "2026-07-14",
       "session": "before",
-      "name": "JP모건",
-      "ticker": "JPM"
+      "name": "시티그룹",
+      "ticker": "C"
+    },
+    {
+      "date": "2026-07-14",
+      "session": "before",
+      "name": "에릭슨",
+      "ticker": "ERIC",
+      "hl": true
+    },
+    {
+      "date": "2026-07-14",
+      "session": "before",
+      "name": "웰스파고",
+      "ticker": "WFC"
     },
     {
       "date": "2026-07-14",
@@ -87,20 +87,26 @@
     {
       "date": "2026-07-15",
       "session": "before",
-      "name": "프로그레시브",
-      "ticker": "PGR"
+      "name": "존슨앤존슨",
+      "ticker": "JNJ"
     },
     {
       "date": "2026-07-15",
       "session": "before",
-      "name": "존슨앤존슨",
-      "ticker": "JNJ"
+      "name": "프로그레시브",
+      "ticker": "PGR"
     },
     {
       "date": "2026-07-15",
       "session": "after",
       "name": "유나이티드에어",
       "ticker": "UAL"
+    },
+    {
+      "date": "2026-07-16",
+      "session": "before",
+      "name": "GE에어로스페이스",
+      "ticker": "GE"
     },
     {
       "date": "2026-07-16",
@@ -112,20 +118,14 @@
     {
       "date": "2026-07-16",
       "session": "before",
-      "name": "GE에어로스페이스",
-      "ticker": "GE"
+      "name": "US뱅코프",
+      "ticker": "USB"
     },
     {
       "date": "2026-07-16",
       "session": "before",
       "name": "유나이티드헬스그룹",
       "ticker": "UNH"
-    },
-    {
-      "date": "2026-07-16",
-      "session": "before",
-      "name": "US뱅코프",
-      "ticker": "USB"
     },
     {
       "date": "2026-07-16",
@@ -160,38 +160,14 @@
     {
       "date": "2026-07-20",
       "session": "after",
-      "name": "스틸다이내믹스",
-      "ticker": "STLD"
-    },
-    {
-      "date": "2026-07-20",
-      "session": "after",
       "name": "AAR",
       "ticker": "AIR"
     },
     {
-      "date": "2026-07-21",
-      "session": "before",
-      "name": "비코",
-      "ticker": "VECO"
-    },
-    {
-      "date": "2026-07-21",
-      "session": "before",
-      "name": "다나허",
-      "ticker": "DHR"
-    },
-    {
-      "date": "2026-07-21",
-      "session": "before",
-      "name": "노스롭그루먼",
-      "ticker": "NOC"
-    },
-    {
-      "date": "2026-07-21",
-      "session": "before",
-      "name": "찰스슈왑",
-      "ticker": "SCHW"
+      "date": "2026-07-20",
+      "session": "after",
+      "name": "스틸다이내믹스",
+      "ticker": "STLD"
     },
     {
       "date": "2026-07-21",
@@ -202,8 +178,38 @@
     {
       "date": "2026-07-21",
       "session": "before",
+      "name": "노스롭그루먼",
+      "ticker": "NOC"
+    },
+    {
+      "date": "2026-07-21",
+      "session": "before",
+      "name": "다나허",
+      "ticker": "DHR"
+    },
+    {
+      "date": "2026-07-21",
+      "session": "before",
       "name": "밸몬트인더스트리",
       "ticker": "VMI"
+    },
+    {
+      "date": "2026-07-21",
+      "session": "before",
+      "name": "비코",
+      "ticker": "VECO"
+    },
+    {
+      "date": "2026-07-21",
+      "session": "before",
+      "name": "찰스슈왑",
+      "ticker": "SCHW"
+    },
+    {
+      "date": "2026-07-22",
+      "session": "before",
+      "name": "AT&T",
+      "ticker": "T"
     },
     {
       "date": "2026-07-22",
@@ -220,16 +226,23 @@
     },
     {
       "date": "2026-07-22",
-      "session": "before",
-      "name": "AT&T",
-      "ticker": "T"
+      "session": "after",
+      "name": "IBM",
+      "ticker": "IBM",
+      "hl": true
     },
     {
       "date": "2026-07-22",
       "session": "after",
-      "name": "알파벳",
+      "name": "구글",
       "ticker": "GOOGL",
       "hl": true
+    },
+    {
+      "date": "2026-07-22",
+      "session": "after",
+      "name": "서비스나우",
+      "ticker": "NOW"
     },
     {
       "date": "2026-07-22",
@@ -241,29 +254,15 @@
     {
       "date": "2026-07-22",
       "session": "after",
-      "name": "IBM",
-      "ticker": "IBM",
-      "hl": true
-    },
-    {
-      "date": "2026-07-22",
-      "session": "after",
       "name": "텍사스인스트루먼트",
       "ticker": "TXN",
       "hl": true
     },
     {
-      "date": "2026-07-22",
-      "session": "after",
-      "name": "서비스나우",
-      "ticker": "NOW"
-    },
-    {
       "date": "2026-07-23",
       "session": "before",
-      "name": "노키아",
-      "ticker": "NOK",
-      "hl": true
+      "name": "RTX",
+      "ticker": "RTX"
     },
     {
       "date": "2026-07-23",
@@ -275,14 +274,15 @@
     {
       "date": "2026-07-23",
       "session": "before",
-      "name": "알젠엑스",
-      "ticker": "ARGX"
+      "name": "T모바일",
+      "ticker": "TMUS"
     },
     {
       "date": "2026-07-23",
       "session": "before",
-      "name": "T모바일",
-      "ticker": "TMUS"
+      "name": "노키아",
+      "ticker": "NOK",
+      "hl": true
     },
     {
       "date": "2026-07-23",
@@ -293,8 +293,8 @@
     {
       "date": "2026-07-23",
       "session": "before",
-      "name": "RTX",
-      "ticker": "RTX"
+      "name": "알젠엑스",
+      "ticker": "ARGX"
     },
     {
       "date": "2026-07-23",
@@ -305,9 +305,8 @@
     {
       "date": "2026-07-23",
       "session": "after",
-      "name": "인텔",
-      "ticker": "INTC",
-      "hl": true
+      "name": "SAP",
+      "ticker": "SAP"
     },
     {
       "date": "2026-07-23",
@@ -318,14 +317,15 @@
     {
       "date": "2026-07-23",
       "session": "after",
-      "name": "SAP",
-      "ticker": "SAP"
+      "name": "인텔",
+      "ticker": "INTC",
+      "hl": true
     },
     {
       "date": "2026-07-24",
       "session": "before",
-      "name": "아메리칸익스프레스",
-      "ticker": "AXP"
+      "name": "넥스트에라에너지",
+      "ticker": "NEE"
     },
     {
       "date": "2026-07-24",
@@ -342,8 +342,8 @@
     {
       "date": "2026-07-24",
       "session": "before",
-      "name": "넥스트에라에너지",
-      "ticker": "NEE"
+      "name": "아메리칸익스프레스",
+      "ticker": "AXP"
     },
     {
       "date": "2026-07-27",
@@ -360,16 +360,8 @@
     {
       "date": "2026-07-27",
       "session": "after",
-      "name": "앰코테크",
-      "ticker": "AMKR",
-      "hl": true
-    },
-    {
-      "date": "2026-07-27",
-      "session": "after",
-      "name": "셀러스트리카",
-      "ticker": "CLS",
-      "hl": true
+      "name": "F5네트웍스",
+      "ticker": "FFIV"
     },
     {
       "date": "2026-07-27",
@@ -386,8 +378,28 @@
     {
       "date": "2026-07-27",
       "session": "after",
-      "name": "F5네트웍스",
-      "ticker": "FFIV"
+      "name": "셀러스트리카",
+      "ticker": "CLS",
+      "hl": true
+    },
+    {
+      "date": "2026-07-27",
+      "session": "after",
+      "name": "앰코테크",
+      "ticker": "AMKR",
+      "hl": true
+    },
+    {
+      "date": "2026-07-28",
+      "session": "before",
+      "name": "HF싱클레어",
+      "ticker": "DINO"
+    },
+    {
+      "date": "2026-07-28",
+      "session": "before",
+      "name": "보잉",
+      "ticker": "BA"
     },
     {
       "date": "2026-07-28",
@@ -399,33 +411,14 @@
     {
       "date": "2026-07-28",
       "session": "before",
-      "name": "페이팔",
-      "ticker": "PYPL"
-    },
-    {
-      "date": "2026-07-28",
-      "session": "before",
       "name": "코카콜라",
       "ticker": "KO"
     },
     {
       "date": "2026-07-28",
       "session": "before",
-      "name": "보잉",
-      "ticker": "BA"
-    },
-    {
-      "date": "2026-07-28",
-      "session": "before",
-      "name": "HF싱클레어",
-      "ticker": "DINO"
-    },
-    {
-      "date": "2026-07-28",
-      "session": "after",
-      "name": "블룸에너지",
-      "ticker": "BE",
-      "hl": true
+      "name": "페이팔",
+      "ticker": "PYPL"
     },
     {
       "date": "2026-07-28",
@@ -444,14 +437,15 @@
     {
       "date": "2026-07-28",
       "session": "after",
-      "name": "포드",
-      "ticker": "F"
+      "name": "블룸에너지",
+      "ticker": "BE",
+      "hl": true
     },
     {
       "date": "2026-07-28",
       "session": "after",
-      "name": "인페이즈에너지",
-      "ticker": "ENPH"
+      "name": "비자",
+      "ticker": "V"
     },
     {
       "date": "2026-07-28",
@@ -462,15 +456,20 @@
     {
       "date": "2026-07-28",
       "session": "after",
-      "name": "비자",
-      "ticker": "V"
+      "name": "인페이즈에너지",
+      "ticker": "ENPH"
+    },
+    {
+      "date": "2026-07-28",
+      "session": "after",
+      "name": "포드",
+      "ticker": "F"
     },
     {
       "date": "2026-07-29",
       "session": "before",
-      "name": "암페놀",
-      "ticker": "APH",
-      "hl": true
+      "name": "SoFi",
+      "ticker": "SOFI"
     },
     {
       "date": "2026-07-29",
@@ -488,14 +487,8 @@
     {
       "date": "2026-07-29",
       "session": "before",
-      "name": "SoFi",
-      "ticker": "SOFI"
-    },
-    {
-      "date": "2026-07-29",
-      "session": "after",
-      "name": "마이크로소프트",
-      "ticker": "MSFT",
+      "name": "암페놀",
+      "ticker": "APH",
       "hl": true
     },
     {
@@ -508,6 +501,24 @@
     {
       "date": "2026-07-29",
       "session": "after",
+      "name": "FTAI에비에이션",
+      "ticker": "FTAI"
+    },
+    {
+      "date": "2026-07-29",
+      "session": "after",
+      "name": "L3해리스",
+      "ticker": "LHX"
+    },
+    {
+      "date": "2026-07-29",
+      "session": "after",
+      "name": "MGM리조트",
+      "ticker": "MGM"
+    },
+    {
+      "date": "2026-07-29",
+      "session": "after",
       "name": "램리서치",
       "ticker": "LRCX",
       "hl": true
@@ -515,9 +526,34 @@
     {
       "date": "2026-07-29",
       "session": "after",
-      "name": "폼팩터",
-      "ticker": "FORM",
+      "name": "로빈후드",
+      "ticker": "HOOD"
+    },
+    {
+      "date": "2026-07-29",
+      "session": "after",
+      "name": "마이크로소프트",
+      "ticker": "MSFT",
       "hl": true
+    },
+    {
+      "date": "2026-07-29",
+      "session": "after",
+      "name": "오로라이노베이션",
+      "ticker": "AUR"
+    },
+    {
+      "date": "2026-07-29",
+      "session": "after",
+      "name": "이퀴닉스",
+      "ticker": "EQIX",
+      "hl": true
+    },
+    {
+      "date": "2026-07-29",
+      "session": "after",
+      "name": "카바나",
+      "ticker": "CVNA"
     },
     {
       "date": "2026-07-29",
@@ -529,50 +565,28 @@
     {
       "date": "2026-07-29",
       "session": "after",
-      "name": "FTAI에비에이션",
-      "ticker": "FTAI"
-    },
-    {
-      "date": "2026-07-29",
-      "session": "after",
-      "name": "로빈후드",
-      "ticker": "HOOD"
-    },
-    {
-      "date": "2026-07-29",
-      "session": "after",
-      "name": "MGM리조트",
-      "ticker": "MGM"
-    },
-    {
-      "date": "2026-07-29",
-      "session": "after",
-      "name": "카바나",
-      "ticker": "CVNA"
-    },
-    {
-      "date": "2026-07-29",
-      "session": "after",
       "name": "포티넷",
       "ticker": "FTNT"
     },
     {
       "date": "2026-07-29",
       "session": "after",
-      "name": "이퀴닉스",
-      "ticker": "EQIX"
+      "name": "폼팩터",
+      "ticker": "FORM",
+      "hl": true
     },
     {
       "date": "2026-07-29",
-      "session": "after",
-      "name": "L3해리스",
-      "ticker": "LHX"
+      "session": "tba",
+      "name": "네비우스",
+      "ticker": "NBIS",
+      "hl": true
     },
     {
-      "date": "2026-07-29",
-      "session": "after",
-      "name": "오로라이노베이션",
-      "ticker": "AUR"
+      "date": "2026-07-30",
+      "session": "before",
+      "name": "PBF에너지",
+      "ticker": "PBF"
     },
     {
       "date": "2026-07-30",
@@ -590,8 +604,14 @@
     {
       "date": "2026-07-30",
       "session": "before",
-      "name": "테크닙FMC",
-      "ticker": "FTI"
+      "name": "리제네론파마",
+      "ticker": "REGN"
+    },
+    {
+      "date": "2026-07-30",
+      "session": "before",
+      "name": "사노피",
+      "ticker": "SNY"
     },
     {
       "date": "2026-07-30",
@@ -608,27 +628,8 @@
     {
       "date": "2026-07-30",
       "session": "before",
-      "name": "사노피",
-      "ticker": "SNY"
-    },
-    {
-      "date": "2026-07-30",
-      "session": "before",
-      "name": "리제네론파마",
-      "ticker": "REGN"
-    },
-    {
-      "date": "2026-07-30",
-      "session": "before",
-      "name": "PBF에너지",
-      "ticker": "PBF"
-    },
-    {
-      "date": "2026-07-30",
-      "session": "after",
-      "name": "애플",
-      "ticker": "AAPL",
-      "hl": true
+      "name": "테크닙FMC",
+      "ticker": "FTI"
     },
     {
       "date": "2026-07-30",
@@ -642,6 +643,12 @@
       "session": "after",
       "name": "넥스트파워",
       "ticker": "NXT"
+    },
+    {
+      "date": "2026-07-30",
+      "session": "after",
+      "name": "덱스컴",
+      "ticker": "DXCM"
     },
     {
       "date": "2026-07-30",
@@ -664,8 +671,16 @@
     {
       "date": "2026-07-30",
       "session": "after",
-      "name": "덱스컴",
-      "ticker": "DXCM"
+      "name": "아마존",
+      "ticker": "AMZN",
+      "hl": true
+    },
+    {
+      "date": "2026-07-30",
+      "session": "after",
+      "name": "애플",
+      "ticker": "AAPL",
+      "hl": true
     },
     {
       "date": "2026-07-30",
@@ -676,14 +691,14 @@
     {
       "date": "2026-07-31",
       "session": "before",
-      "name": "모더나",
-      "ticker": "MRNA"
+      "name": "린드",
+      "ticker": "LIN"
     },
     {
       "date": "2026-07-31",
       "session": "before",
-      "name": "애브비",
-      "ticker": "ABBV"
+      "name": "모더나",
+      "ticker": "MRNA"
     },
     {
       "date": "2026-07-31",
@@ -694,14 +709,20 @@
     {
       "date": "2026-07-31",
       "session": "before",
-      "name": "린드",
-      "ticker": "LIN"
+      "name": "소니그룹",
+      "ticker": "SONY"
     },
     {
       "date": "2026-07-31",
       "session": "before",
-      "name": "소니그룹",
-      "ticker": "SONY"
+      "name": "애브비",
+      "ticker": "ABBV"
+    },
+    {
+      "date": "2026-08-03",
+      "session": "after",
+      "name": "TKO그룹",
+      "ticker": "TKO"
     },
     {
       "date": "2026-08-03",
@@ -710,10 +731,40 @@
       "ticker": "UCTT"
     },
     {
-      "date": "2026-08-03",
-      "session": "after",
-      "name": "TKO그룹",
-      "ticker": "TKO"
+      "date": "2026-08-04",
+      "session": "before",
+      "name": "마라톤페트롤리움",
+      "ticker": "MPC"
+    },
+    {
+      "date": "2026-08-04",
+      "session": "before",
+      "name": "머크",
+      "ticker": "MRK"
+    },
+    {
+      "date": "2026-08-04",
+      "session": "before",
+      "name": "솔스티스",
+      "ticker": "SOLS"
+    },
+    {
+      "date": "2026-08-04",
+      "session": "before",
+      "name": "스포티파이",
+      "ticker": "SPOT"
+    },
+    {
+      "date": "2026-08-04",
+      "session": "before",
+      "name": "캐터필라",
+      "ticker": "CAT"
+    },
+    {
+      "date": "2026-08-04",
+      "session": "before",
+      "name": "큐니티일렉트로닉스",
+      "ticker": "Q"
     },
     {
       "date": "2026-08-04",
@@ -725,50 +776,27 @@
     {
       "date": "2026-08-04",
       "session": "before",
-      "name": "큐니티일렉트로닉스",
-      "ticker": "Q"
-    },
-    {
-      "date": "2026-08-04",
-      "session": "before",
-      "name": "캐터필라",
-      "ticker": "CAT"
-    },
-    {
-      "date": "2026-08-04",
-      "session": "before",
-      "name": "머크",
-      "ticker": "MRK"
-    },
-    {
-      "date": "2026-08-04",
-      "session": "before",
       "name": "화이자",
       "ticker": "PFE"
-    },
-    {
-      "date": "2026-08-04",
-      "session": "before",
-      "name": "스포티파이",
-      "ticker": "SPOT"
-    },
-    {
-      "date": "2026-08-04",
-      "session": "before",
-      "name": "솔스티스",
-      "ticker": "SOLS"
-    },
-    {
-      "date": "2026-08-04",
-      "session": "before",
-      "name": "마라톤페트롤리움",
-      "ticker": "MPC"
     },
     {
       "date": "2026-08-04",
       "session": "after",
       "name": "AMD",
       "ticker": "AMD",
+      "hl": true
+    },
+    {
+      "date": "2026-08-04",
+      "session": "after",
+      "name": "부킹홀딩스",
+      "ticker": "BKNG"
+    },
+    {
+      "date": "2026-08-04",
+      "session": "after",
+      "name": "아리스타네트웍스",
+      "ticker": "ANET",
       "hl": true
     },
     {
@@ -781,34 +809,14 @@
     {
       "date": "2026-08-04",
       "session": "after",
-      "name": "아리스타네트웍스",
-      "ticker": "ANET",
-      "hl": true
-    },
-    {
-      "date": "2026-08-04",
-      "session": "after",
-      "name": "부킹홀딩스",
-      "ticker": "BKNG"
+      "name": "업스타트홀딩스",
+      "ticker": "UPST"
     },
     {
       "date": "2026-08-04",
       "session": "after",
       "name": "윈리조트",
       "ticker": "WYNN"
-    },
-    {
-      "date": "2026-08-04",
-      "session": "after",
-      "name": "업스타트홀딩스",
-      "ticker": "UPST"
-    },
-    {
-      "date": "2026-08-05",
-      "session": "before",
-      "name": "일라이릴리",
-      "ticker": "LLY",
-      "hl": true
     },
     {
       "date": "2026-08-05",
@@ -831,9 +839,9 @@
     },
     {
       "date": "2026-08-05",
-      "session": "after",
-      "name": "샌디스크",
-      "ticker": "SNDK",
+      "session": "before",
+      "name": "일라이릴리",
+      "ticker": "LLY",
       "hl": true
     },
     {
@@ -846,32 +854,8 @@
     {
       "date": "2026-08-05",
       "session": "after",
-      "name": "앱로빈",
-      "ticker": "APP"
-    },
-    {
-      "date": "2026-08-05",
-      "session": "after",
-      "name": "패스틀리",
-      "ticker": "FSLY"
-    },
-    {
-      "date": "2026-08-05",
-      "session": "after",
       "name": "뉴스케일파워",
       "ticker": "SMR"
-    },
-    {
-      "date": "2026-08-05",
-      "session": "after",
-      "name": "블록",
-      "ticker": "XYZ"
-    },
-    {
-      "date": "2026-08-05",
-      "session": "after",
-      "name": "알버말",
-      "ticker": "ALB"
     },
     {
       "date": "2026-08-05",
@@ -882,14 +866,45 @@
     {
       "date": "2026-08-05",
       "session": "after",
+      "name": "블록",
+      "ticker": "XYZ"
+    },
+    {
+      "date": "2026-08-05",
+      "session": "after",
+      "name": "샌디스크",
+      "ticker": "SNDK",
+      "hl": true
+    },
+    {
+      "date": "2026-08-05",
+      "session": "after",
+      "name": "알버말",
+      "ticker": "ALB"
+    },
+    {
+      "date": "2026-08-05",
+      "session": "after",
+      "name": "앱로빈",
+      "ticker": "APP"
+    },
+    {
+      "date": "2026-08-05",
+      "session": "after",
       "name": "테나리스",
       "ticker": "TS"
     },
     {
+      "date": "2026-08-05",
+      "session": "after",
+      "name": "패스틀리",
+      "ticker": "FSLY"
+    },
+    {
       "date": "2026-08-06",
       "session": "before",
-      "name": "하이맥스테크",
-      "ticker": "HIMX"
+      "name": "셰니어에너지",
+      "ticker": "LNG"
     },
     {
       "date": "2026-08-06",
@@ -906,8 +921,8 @@
     {
       "date": "2026-08-06",
       "session": "before",
-      "name": "셰니어에너지",
-      "ticker": "LNG"
+      "name": "하이맥스테크",
+      "ticker": "HIMX"
     },
     {
       "date": "2026-08-06",
@@ -924,14 +939,14 @@
     {
       "date": "2026-08-07",
       "session": "before",
-      "name": "비스트라에너지",
-      "ticker": "VST"
+      "name": "TTWO",
+      "ticker": "TTWO"
     },
     {
       "date": "2026-08-07",
       "session": "before",
-      "name": "TTWO",
-      "ticker": "TTWO"
+      "name": "비스트라에너지",
+      "ticker": "VST"
     },
     {
       "date": "2026-08-12",
@@ -944,6 +959,27 @@
       "session": "after",
       "name": "어플라이드머티리얼즈",
       "ticker": "AMAT",
+      "hl": true
+    },
+    {
+      "date": "2026-08-18",
+      "session": "after",
+      "name": "코어위브",
+      "ticker": "CRWV",
+      "hl": true
+    },
+    {
+      "date": "2026-09-14",
+      "session": "after",
+      "name": "오라클",
+      "ticker": "ORCL",
+      "hl": true
+    },
+    {
+      "date": "2026-09-16",
+      "session": "after",
+      "name": "IREN",
+      "ticker": "IREN",
       "hl": true
     }
   ],
