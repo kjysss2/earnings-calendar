@@ -123,6 +123,10 @@
     background:var(--after);
   }
 
+  tr.tba-row td{
+    background:#f7f3e8;
+  }
+
   td{
     width:calc((100% - 70px) / 5);
     min-height:100px;
@@ -185,6 +189,7 @@
   <p class="legend">
     <span><b style="color:var(--red)">빨간 종목</b> = 주요 관심 종목</span>
     <span>Transcript는 Notion의 <b>26.2Q 미국 DB</b>에서 연결된 항목만 표시됩니다.</span>
+    <span>발표 시간이 확정되지 않은 회사는 <b>시간미정</b> 행에 표시됩니다.</span>
   </p>
   <div id="cal"></div>
 </main>
@@ -331,10 +336,14 @@ function render(data){
     if(!entry.date) continue;
 
     if(!byDate[entry.date]){
-      byDate[entry.date]={before:[],after:[]};
+      byDate[entry.date]={before:[],after:[],tba:[]};
     }
 
-    const session=entry.session==="after" ? "after" : "before";
+    const session=entry.session==="after"
+      ? "after"
+      : entry.session==="tba"
+        ? "tba"
+        : "before";
     byDate[entry.date][session].push(entry);
   }
 
@@ -348,7 +357,18 @@ function render(data){
       days.push(addDays(cursor,index));
     }
 
-    weeks.push(days);
+    const hasEntries=days.some(day=>{
+      const dayData=byDate[iso(day)];
+      if(!dayData) return false;
+      return ["before","after","tba"].some(key=>
+        Array.isArray(dayData[key]) && dayData[key].length>0
+      );
+    });
+
+    if(hasEntries){
+      weeks.push(days);
+    }
+
     cursor=addDays(cursor,7);
   }
 
@@ -380,10 +400,16 @@ function render(data){
 
     header+="</tr>";
 
+    const hasTba=days.some(day=>{
+      const dayData=byDate[iso(day)]||{};
+      return Array.isArray(dayData.tba) && dayData.tba.length>0;
+    });
+
     table.innerHTML=
       header
       +row("장전","before-row","before",days,byDate,startIso,endIso)
-      +row("장후","after-row","after",days,byDate,startIso,endIso);
+      +row("장후","after-row","after",days,byDate,startIso,endIso)
+      +(hasTba ? row("시간미정","tba-row","tba",days,byDate,startIso,endIso) : "");
 
     const wrapper=document.createElement("div");
     wrapper.className="week";
