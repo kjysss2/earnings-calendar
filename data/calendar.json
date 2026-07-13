@@ -23,7 +23,7 @@
       "ticker": "DAL"
     },
     {
-      "date": "2026-07-13",
+      "date": "2026-07-14",
       "session": "before",
       "name": "패스널",
       "ticker": "FAST"
@@ -990,5 +990,5 @@
       "hl": true
     }
   ],
-  "updated": "2026-07-11 KST"
+  "updated": "2026-07-13 KST"
 }
