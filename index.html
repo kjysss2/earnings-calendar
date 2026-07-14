@@ -171,15 +171,6 @@
     color:var(--red);
   }
 
-  .meta{
-    color:#7a8594;
-    font-size:12px;
-  }
-
-  .detail{
-    color:#8b5a00;
-  }
-
   .paren{
     color:#8b94a1;
   }
@@ -264,7 +255,8 @@
       line-height:1.4;
     }
 
-    .legend span:nth-child(2){
+    .legend span:nth-child(2),
+    .legend span:nth-child(3){
       display:none;
     }
 
@@ -386,12 +378,6 @@
       padding:8px 0;
     }
 
-    .meta{
-      display:block;
-      margin-top:1px;
-      font-size:11px;
-    }
-
     a.lnk.tr{
       display:inline-flex;
       align-items:center;
@@ -432,9 +418,9 @@
 
 <main>
   <p class="legend">
-    <span><b style="color:var(--red)">&#48744;&#44036; &#51333;&#47785;</b> = &#51452;&#50836; &#44288;&#49900; &#51333;&#47785;</span>
-    <span>StockEasy &#49884;&#51109;&#51068;&#51221;&#50640;&#49436; <b>&#49892;&#51201;&#48156;&#54364;</b> &#54637;&#47785;&#47564; &#54364;&#49884;&#54633;&#45768;&#45796;.</span>
-    <span>&#48156;&#54364; &#49884;&#44036;&#51060; &#48324;&#46020;&#47196; &#51228;&#44277;&#46104;&#51648; &#50506;&#51008; &#51068;&#51221;&#51008; <b>&#49892;&#51201;&#48156;&#54364;</b> &#54665;&#50640; &#54364;&#49884;&#46121;&#45768;&#45796;.</span>
+    <span><b style="color:var(--red)">빨간 종목</b> = 주요 관심 종목</span>
+    <span>Transcript는 Notion의 <b>26.2Q 미국 DB</b>에서 연결된 항목만 표시됩니다.</span>
+    <span>발표 시간이 확정되지 않은 회사는 <b>시간미정</b>에 표시됩니다.</span>
   </p>
 
   <div id="desktopCal" class="desktop-calendar"></div>
@@ -442,25 +428,50 @@
 </main>
 
 <footer>
-  &#51088;&#46041; &#50629;&#45936;&#51060;&#53944;: GitHub Actions &middot; &#51068;&#51221;: StockEasy &#49884;&#51109;&#51068;&#51221; &middot; &#54364;&#49884; &#52852;&#53580;&#44256;&#47532;: &#49892;&#51201;&#48156;&#54364;
+  자동 업데이트: GitHub Actions · 일정: data/calendar.json · Transcript: Notion 26.2Q 미국 DB
 </footer>
 
 <script>
-const DAYNAMES=["\uC77C","\uC6D4","\uD654","\uC218","\uBAA9","\uAE08","\uD1A0"];
-const SESSION_ROWS=[
-  {key:"before",label:"\uC7A5\uC804",className:"before-row"},
-  {key:"after",label:"\uC7A5\uD6C4",className:"after-row"},
-  {key:"tba",label:"\uC2E4\uC801\uBC1C\uD45C",className:"tba-row"}
-];
+const DAYNAMES=["일","월","화","수","목","금","토"];
+const TRANSCRIPT_DATA_URL="data/notion-transcripts.json";
+let notionTranscripts={};
 
-async function loadJson(url){
+async function loadJson(url,fallback=null){
   const response=await fetch(url+"?t="+Date.now());
 
   if(!response.ok){
+    if(fallback!==null) return fallback;
     throw new Error(`HTTP ${response.status}`);
   }
 
   return response.json();
+}
+
+function normalizeTranscriptLinks(links={}){
+  const normalized={};
+
+  for(const [ticker,url] of Object.entries(links||{})){
+    if(ticker && url){
+      normalized[String(ticker).toUpperCase()]=url;
+    }
+  }
+
+  return normalized;
+}
+
+function isNotionUrl(url){
+  return /^https:\/\/(app\.)?notion\.com\//i.test(url||"")
+    || /^https:\/\/(www\.)?notion\.so\//i.test(url||"");
+}
+
+function transcriptUrl(entry){
+  const ticker=(entry.ticker||"").toUpperCase();
+
+  if(ticker && notionTranscripts[ticker]){
+    return notionTranscripts[ticker];
+  }
+
+  return isNotionUrl(entry.script) ? entry.script : null;
 }
 
 function parseIso(value){
@@ -504,7 +515,22 @@ function escapeHtml(value){
     .replaceAll("'","&#039;");
 }
 
-loadJson("data/calendar.json").then(render).catch(error=>{
+function safeUrl(value){
+  try{
+    const url=new URL(value);
+    return ["https:","http:"].includes(url.protocol) ? url.href : "#";
+  }catch{
+    return "#";
+  }
+}
+
+Promise.all([
+  loadJson("data/calendar.json"),
+  loadJson(TRANSCRIPT_DATA_URL,{links:{}})
+]).then(([data,transcriptData])=>{
+  notionTranscripts=normalizeTranscriptLinks(transcriptData.links);
+  render(data);
+}).catch(error=>{
   const message=`<p class="empty">데이터를 불러오지 못했습니다. ${escapeHtml(error.message)}</p>`;
   document.getElementById("desktopCal").innerHTML=message;
   document.getElementById("mobileCal").innerHTML=message;
@@ -548,9 +574,11 @@ function render(data){
       byDate[entry.date]={before:[],after:[],tba:[]};
     }
 
-    const session=entry.session==="before" || entry.session==="after"
-      ? entry.session
-      : "tba";
+    const session=entry.session==="after"
+      ? "after"
+      : entry.session==="tba"
+        ? "tba"
+        : "before";
 
     byDate[entry.date][session].push(entry);
   }
@@ -585,18 +613,6 @@ function render(data){
   setupTodayButton(start,end);
 }
 
-function sessionsForDays(days,byDate){
-  const visible=SESSION_ROWS.filter(row=>
-    days.some(day=>{
-      const dayData=byDate[iso(day)]||{};
-      const list=dayData[row.key]||[];
-      return list.length>0;
-    })
-  );
-
-  return visible.length ? visible : SESSION_ROWS.slice(2);
-}
-
 function renderDesktop(weeks,byDate,start,end){
   const todayIso=iso(new Date());
   const startIso=iso(start);
@@ -626,9 +642,16 @@ function renderDesktop(weeks,byDate,start,end){
 
     header+="</tr>";
 
-    table.innerHTML=header+sessionsForDays(days,byDate)
-      .map(rowInfo=>row(rowInfo,days,byDate,startIso,endIso))
-      .join("");
+    const hasTba=days.some(day=>{
+      const dayData=byDate[iso(day)]||{};
+      return Array.isArray(dayData.tba) && dayData.tba.length>0;
+    });
+
+    table.innerHTML=
+      header
+      +row("장전","before-row","before",days,byDate,startIso,endIso)
+      +row("장후","after-row","after",days,byDate,startIso,endIso)
+      +(hasTba ? row("시간미정","tba-row","tba",days,byDate,startIso,endIso) : "");
 
     const wrapper=document.createElement("div");
     wrapper.className="week";
@@ -677,10 +700,12 @@ function renderMobile(weeks,byDate,start,end){
         ${dayIso===todayIso ? '<span class="today-badge">오늘</span>' : ''}
       </div>`;
 
-      html+=SESSION_ROWS
-        .filter(rowInfo=>(dayData[rowInfo.key]||[]).length>0)
-        .map(rowInfo=>mobileSession(rowInfo.label,rowInfo.key,dayData[rowInfo.key]||[]))
-        .join("");
+      html+=mobileSession("장전","before",dayData.before||[]);
+      html+=mobileSession("장후","after",dayData.after||[]);
+
+      if(Array.isArray(dayData.tba) && dayData.tba.length){
+        html+=mobileSession("시간미정","tba",dayData.tba);
+      }
 
       card.innerHTML=html;
       week.appendChild(card);
@@ -727,8 +752,8 @@ function setupTodayButton(start,end){
   };
 }
 
-function row(rowInfo,days,byDate,startIso,endIso){
-  let html=`<tr class="${rowInfo.className}"><th class="rowlab">${rowInfo.label}</th>`;
+function row(label,className,session,days,byDate,startIso,endIso){
+  let html=`<tr class="${className}"><th class="rowlab">${label}</th>`;
 
   for(const day of days){
     const dayIso=iso(day);
@@ -738,7 +763,7 @@ function row(rowInfo,days,byDate,startIso,endIso){
       continue;
     }
 
-    const list=(byDate[dayIso]||{})[rowInfo.key]||[];
+    const list=(byDate[dayIso]||{})[session]||[];
 
     html+="<td>"
       +(list.length
@@ -752,26 +777,17 @@ function row(rowInfo,days,byDate,startIso,endIso){
 
 function companyHtml(entry){
   const highlight=entry.hl ? " hl" : "";
+  const transcript=transcriptUrl(entry);
   const name=escapeHtml(entry.name||entry.ticker||"");
   const ticker=escapeHtml(entry.ticker||"");
-  const market=escapeHtml(entry.market||"");
-  const detail=escapeHtml(entry.detail||"");
+
+  const link=transcript
+    ? ` <span class="paren">(</span><a class="lnk tr" href="${safeUrl(transcript)}" target="_blank" rel="noopener">Transcript</a><span class="paren">)</span>`
+    : "";
+
   const title=ticker ? ` title="${ticker}"` : "";
-  const meta=[];
 
-  if(ticker){
-    meta.push(`<span class="ticker">${ticker}</span>`);
-  }
-
-  if(market){
-    meta.push(`<span class="market">${market}</span>`);
-  }
-
-  if(detail){
-    meta.push(`<span class="detail">${detail}</span>`);
-  }
-
-  return `<div class="co${highlight}"><span class="nm"${title}>${name}</span>${meta.length ? ` <span class="meta">${meta.join(" \u00B7 ")}</span>` : ""}</div>`;
+  return `<div class="co${highlight}"><span class="nm"${title}>${name}</span>${link}</div>`;
 }
 </script>
 
