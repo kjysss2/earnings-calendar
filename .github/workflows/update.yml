@@ -1,23 +1,16 @@
-name: StockEasy earnings calendar update
+name: Transcript 링크 자동 업데이트
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - index.html
-      - README.md
-      - scripts/update_stockeasy_calendar.py
-      - .github/workflows/update.yml
   schedule:
-    - cron: "17 */3 * * *"
+    # 매시간 7분, 37분에 실행 = 30분 간격
+    - cron: "7,37 * * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: stockeasy-calendar-sync
+  group: notion-transcript-sync
   cancel-in-progress: false
 
 jobs:
@@ -26,31 +19,43 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - name: Check out repository
+      - name: 저장소 불러오기
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Set up Python
+      - name: Python 설정
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Update StockEasy earnings calendar
-        run: python scripts/update_stockeasy_calendar.py
-
-      - name: Commit updated calendar data
+      - name: NOTION_TOKEN 확인
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
         run: |
-          if git diff --quiet -- data/calendar.json; then
-            echo "No earnings calendar changes."
+          if [ -z "$NOTION_TOKEN" ]; then
+            echo "::error::GitHub Actions Secret에 NOTION_TOKEN이 없습니다."
+            exit 1
+          fi
+
+      - name: Notion Transcript 링크 업데이트
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: d2c2cff2-91cc-82ac-ac28-0153506c607c
+        run: python scripts/update_links.py
+
+      - name: 변경사항 저장
+        run: |
+          if git diff --quiet -- data/notion-transcripts.json; then
+            echo "변경된 Transcript 링크가 없습니다."
             exit 0
           fi
 
           git config user.name "earnings-bot"
           git config user.email "actions@github.com"
 
-          git add data/calendar.json
-          git commit -m "Auto update: StockEasy earnings calendar"
+          git add data/notion-transcripts.json
+          git commit -m "자동 업데이트: Notion Transcript 링크"
 
           git pull --rebase origin main
           git push origin HEAD:main
