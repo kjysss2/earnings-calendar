@@ -2,8 +2,8 @@ name: Transcript 링크 자동 업데이트
 
 on:
   schedule:
-    # 매시간 7분, 37분에 실행 = 30분 간격
-    - cron: "7,37 * * * *"
+    # 매시 정각과 30분에 실행
+    - cron: "0,30 * * * *"
   workflow_dispatch:
 
 permissions:
