@@ -1,6 +1,11 @@
 name: Transcript 링크 자동 업데이트
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/update.yml
   schedule:
     # GitHub Actions 혼잡 시간대를 피해 매시 7분과 37분에 실행
     - cron: "7,37 * * * *"
