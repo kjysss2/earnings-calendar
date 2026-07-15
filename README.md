@@ -10,7 +10,7 @@
 
 ## 자동 업데이트 동작
 
-`.github/workflows/update.yml`이 30분마다 실행됩니다(매시 정각과 30분, GitHub Actions 스케줄 기준).
+`.github/workflows/update.yml`이 30분마다 실행됩니다(매시 7분과 37분, GitHub Actions 스케줄 기준).
 
 - **IR자료**: 더 이상 표시하거나 수집하지 않습니다.
 - **Transcript**: Notion의 `26.2Q 미국 DB`에서 캘린더 종목 티커와 일치하는 페이지를 찾아 `data/notion-transcripts.json`에 저장합니다.
