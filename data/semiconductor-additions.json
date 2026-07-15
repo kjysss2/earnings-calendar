@@ -1,0 +1,83 @@
+{
+  "entries": [
+    {
+      "date": "2026-07-27",
+      "session": "after",
+      "name": "케이던스 디자인 시스템즈",
+      "ticker": "CDNS"
+    },
+    {
+      "date": "2026-07-28",
+      "session": "after",
+      "name": "테라다인",
+      "ticker": "TER"
+    },
+    {
+      "date": "2026-07-28",
+      "session": "after",
+      "name": "코보",
+      "ticker": "QRVO"
+    },
+    {
+      "date": "2026-07-30",
+      "session": "after",
+      "name": "모놀리식 파워 시스템즈",
+      "ticker": "MPWR"
+    },
+    {
+      "date": "2026-08-03",
+      "session": "before",
+      "name": "온세미",
+      "ticker": "ON"
+    },
+    {
+      "date": "2026-08-04",
+      "session": "after",
+      "name": "스카이웍스 솔루션스",
+      "ticker": "SWKS"
+    },
+    {
+      "date": "2026-08-05",
+      "session": "after",
+      "name": "시러스 로직",
+      "ticker": "CRUS"
+    },
+    {
+      "date": "2026-08-05",
+      "session": "after",
+      "name": "MKS 인스트루먼츠",
+      "ticker": "MKSI"
+    },
+    {
+      "date": "2026-08-06",
+      "session": "after",
+      "name": "마이크로칩 테크놀로지",
+      "ticker": "MCHP"
+    },
+    {
+      "date": "2026-08-19",
+      "session": "before",
+      "name": "아날로그 디바이시스",
+      "ticker": "ADI"
+    },
+    {
+      "date": "2026-08-19",
+      "session": "after",
+      "name": "시놉시스",
+      "ticker": "SNPS"
+    },
+    {
+      "date": "2026-08-26",
+      "session": "after",
+      "name": "엔비디아",
+      "ticker": "NVDA"
+    },
+    {
+      "date": "2026-08-27",
+      "session": "after",
+      "name": "마벨 테크놀로지",
+      "ticker": "MRVL"
+    }
+  ],
+  "updated": "2026-07-15 KST"
+}
