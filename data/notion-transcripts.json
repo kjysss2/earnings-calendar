@@ -1,7 +1,7 @@
 {
   "source": "Notion 26.2Q 미국 DB",
   "databaseId": "d2c2cff2-91cc-82ac-ac28-0153506c607c",
-  "updated": "2026-07-16 01:55 KST",
+  "updated": "2026-07-16 18:05 KST",
   "links": {
     "AEHR": "https://app.notion.com/p/AEHR-Aehr-Test-Systems-Inc-Q2-2026-39d2cff291cc81c7bca1c701529287cd",
     "ASML": "https://app.notion.com/p/ASML-ASML-Holding-N-V-Q2-2026-39e2cff291cc8159b659e8d5e70f38b3",
@@ -16,6 +16,7 @@
     "JPM": "https://app.notion.com/p/JPM-JPMorgan-Chase-Co-Q2-2026-39d2cff291cc81f8b968d7493e88fb3e",
     "PENG": "https://app.notion.com/p/PENG-Penguin-Solutions-Q2-2026-3992cff291cc816d83ebcc2f2f13bf5a",
     "PEP": "https://app.notion.com/p/PEP-PepsiCo-Q2-2026-39a2cff291cc81f2a0c1ddb59bd1b2ae",
+    "TSM": "https://app.notion.com/p/TSM-Taiwan-Semiconductor-Manufacturing-Company-Limited-Q2-2026-39f2cff291cc8101b428d39f82210001",
     "WFC": "https://app.notion.com/p/WFC-Wells-Fargo-Company-Q2-2026-39d2cff291cc8176ae1ada5c48f24e3b"
   }
 }
