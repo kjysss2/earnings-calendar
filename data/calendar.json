@@ -4,12 +4,12 @@
   "endDate": "2026-09-18",
   "entries": [
     {
-  "date": "2026-07-07",
-  "session": "after",
-  "name": "펭귄솔루션스",
-  "ticker": "PENG",
-  "hl": true
-    },  
+      "date": "2026-07-07",
+      "session": "after",
+      "name": "펭귄솔루션스",
+      "ticker": "PENG",
+      "hl": true
+    },
     {
       "date": "2026-07-09",
       "session": "before",
@@ -534,7 +534,8 @@
       "date": "2026-07-29",
       "session": "after",
       "name": "로빈후드",
-      "ticker": "HOOD"
+      "ticker": "HOOD",
+      "hl": true
     },
     {
       "date": "2026-07-29",
@@ -944,6 +945,13 @@
       "ticker": "ABNB"
     },
     {
+      "date": "2026-08-06",
+      "session": "after",
+      "name": "클라우드플레어",
+      "ticker": "NET",
+      "hl": true
+    },
+    {
       "date": "2026-08-07",
       "session": "before",
       "name": "TTWO",
@@ -976,6 +984,13 @@
       "hl": true
     },
     {
+      "date": "2026-09-08",
+      "session": "after",
+      "name": "루브릭(예상)",
+      "ticker": "RBRK",
+      "hl": true
+    },
+    {
       "date": "2026-09-14",
       "session": "after",
       "name": "오라클",
@@ -990,5 +1005,5 @@
       "hl": true
     }
   ],
-  "updated": "2026-07-13 KST"
+  "updated": "2026-07-16 KST"
 }
