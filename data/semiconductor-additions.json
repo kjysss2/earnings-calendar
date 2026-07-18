@@ -105,4 +105,273 @@
     {
       "date": "2026-07-30",
       "session": "after",
-      "name":
+      "name": "스트래티지",
+      "ticker": "MSTR"
+    },
+    {
+      "date": "2026-07-30",
+      "session": "after",
+      "name": "소노스",
+      "ticker": "SONO"
+    },
+    {
+      "date": "2026-07-31",
+      "session": "before",
+      "name": "이튼",
+      "ticker": "ETN"
+    },
+    {
+      "date": "2026-07-31",
+      "session": "before",
+      "name": "포럼 에너지 테크놀로지스",
+      "ticker": "FET"
+    },
+    {
+      "date": "2026-07-31",
+      "session": "before",
+      "name": "엑슨모빌",
+      "ticker": "XOM"
+    },
+    {
+      "date": "2026-08-03",
+      "session": "before",
+      "name": "온세미",
+      "ticker": "ON"
+    },
+    {
+      "date": "2026-08-03",
+      "session": "after",
+      "name": "팔란티어",
+      "ticker": "PLTR"
+    },
+    {
+      "date": "2026-08-04",
+      "session": "before",
+      "name": "BP",
+      "ticker": "BP"
+    },
+    {
+      "date": "2026-08-04",
+      "session": "before",
+      "name": "커민스",
+      "ticker": "CMI"
+    },
+    {
+      "date": "2026-08-04",
+      "session": "before",
+      "name": "에너지 트랜스퍼",
+      "ticker": "ET"
+    },
+    {
+      "date": "2026-08-04",
+      "session": "before",
+      "name": "HUT 8",
+      "ticker": "HUT"
+    },
+    {
+      "date": "2026-08-04",
+      "session": "before",
+      "name": "맥도날드",
+      "ticker": "MCD"
+    },
+    {
+      "date": "2026-08-04",
+      "session": "after",
+      "name": "암젠",
+      "ticker": "AMGN"
+    },
+    {
+      "date": "2026-08-04",
+      "session": "after",
+      "name": "스카이웍스 솔루션스",
+      "ticker": "SWKS"
+    },
+    {
+      "date": "2026-08-05",
+      "session": "before",
+      "name": "이오스 에너지",
+      "ticker": "EOSE"
+    },
+    {
+      "date": "2026-08-05",
+      "session": "before",
+      "name": "인모드",
+      "ticker": "INMD"
+    },
+    {
+      "date": "2026-08-05",
+      "session": "before",
+      "name": "우버",
+      "ticker": "UBER"
+    },
+    {
+      "date": "2026-08-05",
+      "session": "before",
+      "name": "비셰이 인터테크놀로지",
+      "ticker": "VSH"
+    },
+    {
+      "date": "2026-08-05",
+      "session": "before",
+      "name": "짐머 바이오멧",
+      "ticker": "ZBH"
+    },
+    {
+      "date": "2026-08-05",
+      "session": "after",
+      "name": "어레이 테크놀로지스",
+      "ticker": "ARRY"
+    },
+    {
+      "date": "2026-08-05",
+      "session": "after",
+      "name": "시러스 로직",
+      "ticker": "CRUS"
+    },
+    {
+      "date": "2026-08-05",
+      "session": "after",
+      "name": "도어대시",
+      "ticker": "DASH"
+    },
+    {
+      "date": "2026-08-05",
+      "session": "after",
+      "name": "MKS 인스트루먼츠",
+      "ticker": "MKSI"
+    },
+    {
+      "date": "2026-08-05",
+      "session": "after",
+      "name": "선런",
+      "ticker": "RUN"
+    },
+    {
+      "date": "2026-08-05",
+      "session": "after",
+      "name": "탈렌 에너지",
+      "ticker": "TLN"
+    },
+    {
+      "date": "2026-08-05",
+      "session": "after",
+      "name": "웨스턴 디지털",
+      "ticker": "WDC"
+    },
+    {
+      "date": "2026-08-06",
+      "session": "before",
+      "name": "컨스텔레이션 에너지",
+      "ticker": "CEG"
+    },
+    {
+      "date": "2026-08-06",
+      "session": "before",
+      "name": "데이터독",
+      "ticker": "DDOG"
+    },
+    {
+      "date": "2026-08-06",
+      "session": "before",
+      "name": "랄프 로렌",
+      "ticker": "RL"
+    },
+    {
+      "date": "2026-08-06",
+      "session": "after",
+      "name": "어플라이드 옵토일렉트로닉스",
+      "ticker": "AAOI"
+    },
+    {
+      "date": "2026-08-06",
+      "session": "after",
+      "name": "리프트",
+      "ticker": "LYFT"
+    },
+    {
+      "date": "2026-08-06",
+      "session": "after",
+      "name": "마이크로칩 테크놀로지",
+      "ticker": "MCHP"
+    },
+    {
+      "date": "2026-08-06",
+      "session": "after",
+      "name": "MP 머티리얼즈",
+      "ticker": "MP"
+    },
+    {
+      "date": "2026-08-07",
+      "session": "before",
+      "name": "ACM 리서치",
+      "ticker": "ACMR"
+    },
+    {
+      "date": "2026-08-10",
+      "session": "after",
+      "name": "힘스앤허스",
+      "ticker": "HIMS"
+    },
+    {
+      "date": "2026-08-11",
+      "session": "before",
+      "name": "엘빗 시스템즈",
+      "ticker": "ESLT"
+    },
+    {
+      "date": "2026-08-11",
+      "session": "before",
+      "name": "리튬 아메리카스",
+      "ticker": "LAC"
+    },
+    {
+      "date": "2026-08-11",
+      "session": "before",
+      "name": "벤처 글로벌",
+      "ticker": "VG"
+    },
+    {
+      "date": "2026-08-11",
+      "session": "after",
+      "name": "루멘텀 홀딩스",
+      "ticker": "LITE"
+    },
+    {
+      "date": "2026-08-12",
+      "session": "after",
+      "name": "알파 앤 오메가 세미컨덕터",
+      "ticker": "AOSL"
+    },
+    {
+      "date": "2026-08-13",
+      "session": "before",
+      "name": "골라 LNG",
+      "ticker": "GLNG"
+    },
+    {
+      "date": "2026-08-19",
+      "session": "before",
+      "name": "아날로그 디바이시스",
+      "ticker": "ADI"
+    },
+    {
+      "date": "2026-08-19",
+      "session": "after",
+      "name": "시놉시스",
+      "ticker": "SNPS"
+    },
+    {
+      "date": "2026-08-26",
+      "session": "after",
+      "name": "엔비디아",
+      "ticker": "NVDA"
+    },
+    {
+      "date": "2026-08-27",
+      "session": "after",
+      "name": "마벨 테크놀로지",
+      "ticker": "MRVL"
+    }
+  ],
+  "updated": "2026-07-18 KST"
+}
