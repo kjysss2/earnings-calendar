@@ -1,6 +1,24 @@
 {
   "entries": [
     {
+      "date": "2026-07-22",
+      "session": "after",
+      "name": "킨더모건",
+      "ticker": "KMI"
+    },
+    {
+      "date": "2026-07-23",
+      "session": "before",
+      "name": "아메리칸에어라인",
+      "ticker": "AAL"
+    },
+    {
+      "date": "2026-07-27",
+      "session": "after",
+      "name": "어플라이드 디지털",
+      "ticker": "APLD"
+    },
+    {
       "date": "2026-07-27",
       "session": "after",
       "name": "케이던스 디자인 시스템즈",
@@ -9,14 +27,74 @@
     {
       "date": "2026-07-28",
       "session": "after",
-      "name": "테라다인",
-      "ticker": "TER"
+      "name": "코보",
+      "ticker": "QRVO"
     },
     {
       "date": "2026-07-28",
       "session": "after",
-      "name": "코보",
-      "ticker": "QRVO"
+      "name": "씨게이트",
+      "ticker": "STX"
+    },
+    {
+      "date": "2026-07-28",
+      "session": "after",
+      "name": "테라다인",
+      "ticker": "TER"
+    },
+    {
+      "date": "2026-07-29",
+      "session": "before",
+      "name": "제너럴 다이내믹스",
+      "ticker": "GD"
+    },
+    {
+      "date": "2026-07-29",
+      "session": "before",
+      "name": "버티브 홀딩스",
+      "ticker": "VRT"
+    },
+    {
+      "date": "2026-07-29",
+      "session": "after",
+      "name": "메타",
+      "ticker": "META"
+    },
+    {
+      "date": "2026-07-30",
+      "session": "before",
+      "name": "아메리칸 일렉트릭 파워",
+      "ticker": "AEP"
+    },
+    {
+      "date": "2026-07-30",
+      "session": "before",
+      "name": "헌팅턴 잉걸스",
+      "ticker": "HII"
+    },
+    {
+      "date": "2026-07-30",
+      "session": "before",
+      "name": "콴타 서비스",
+      "ticker": "PWR"
+    },
+    {
+      "date": "2026-07-30",
+      "session": "before",
+      "name": "발레로 에너지",
+      "ticker": "VLO"
+    },
+    {
+      "date": "2026-07-30",
+      "session": "after",
+      "name": "코인베이스",
+      "ticker": "COIN"
+    },
+    {
+      "date": "2026-07-30",
+      "session": "after",
+      "name": "퍼스트 솔라",
+      "ticker": "FSLR"
     },
     {
       "date": "2026-07-30",
@@ -25,59 +103,6 @@
       "ticker": "MPWR"
     },
     {
-      "date": "2026-08-03",
-      "session": "before",
-      "name": "온세미",
-      "ticker": "ON"
-    },
-    {
-      "date": "2026-08-04",
+      "date": "2026-07-30",
       "session": "after",
-      "name": "스카이웍스 솔루션스",
-      "ticker": "SWKS"
-    },
-    {
-      "date": "2026-08-05",
-      "session": "after",
-      "name": "시러스 로직",
-      "ticker": "CRUS"
-    },
-    {
-      "date": "2026-08-05",
-      "session": "after",
-      "name": "MKS 인스트루먼츠",
-      "ticker": "MKSI"
-    },
-    {
-      "date": "2026-08-06",
-      "session": "after",
-      "name": "마이크로칩 테크놀로지",
-      "ticker": "MCHP"
-    },
-    {
-      "date": "2026-08-19",
-      "session": "before",
-      "name": "아날로그 디바이시스",
-      "ticker": "ADI"
-    },
-    {
-      "date": "2026-08-19",
-      "session": "after",
-      "name": "시놉시스",
-      "ticker": "SNPS"
-    },
-    {
-      "date": "2026-08-26",
-      "session": "after",
-      "name": "엔비디아",
-      "ticker": "NVDA"
-    },
-    {
-      "date": "2026-08-27",
-      "session": "after",
-      "name": "마벨 테크놀로지",
-      "ticker": "MRVL"
-    }
-  ],
-  "updated": "2026-07-15 KST"
-}
+      "name":
