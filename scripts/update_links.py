@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
 """
-Notion의 '26.2Q 미국 DB'를 확인해
-data/notion-transcripts.json을 자동으로 갱신합니다.
+Notion의 '26.2Q 미국 DB'를 조회해
+data/notion-transcripts.json을 자동 갱신합니다.
 
-Notion 페이지 제목 형식:
-TICKER - Company Name Q2 2026
+Transcript 검색 대상은 아래 두 파일의 티커를 합쳐 사용합니다.
 
-예:
-DAL - Delta Air Lines Q2 2026
-PEP - PepsiCo Q2 2026
+- data/calendar.json
+- data/semiconductor-additions.json
+
+Notion 페이지 제목 예시:
+
+AAL - American Airlines Group Inc. Q2 2026
+KMI - Kinder Morgan Inc. Q2 2026
 """
 
 import json
@@ -22,33 +25,41 @@ from urllib.request import Request, urlopen
 
 
 ROOT = os.path.dirname(
-    os.path.dirname(os.path.abspath(__file__))
+    os.path.dirname(
+        os.path.abspath(__file__)
+    )
 )
 
-CALENDAR_FILE = os.path.join(
+DATA_DIR = os.path.join(
     ROOT,
     "data",
-    "calendar.json",
 )
+
+CALENDAR_FILES = [
+    os.path.join(
+        DATA_DIR,
+        "calendar.json",
+    ),
+    os.path.join(
+        DATA_DIR,
+        "semiconductor-additions.json",
+    ),
+]
 
 OUTPUT_FILE = os.path.join(
-    ROOT,
-    "data",
+    DATA_DIR,
     "notion-transcripts.json",
 )
-
 
 NOTION_TOKEN = os.environ.get(
     "NOTION_TOKEN",
     "",
 ).strip()
 
-
 NOTION_DATABASE_ID = os.environ.get(
     "NOTION_DATABASE_ID",
     "d2c2cff2-91cc-82ac-ac28-0153506c607c",
 ).strip()
-
 
 NOTION_VERSION = "2026-03-11"
 NOTION_API = "https://api.notion.com/v1"
@@ -93,7 +104,11 @@ def write_json(path, data):
         file.write("\n")
 
 
-def notion_request(method, endpoint, payload=None):
+def notion_request(
+    method,
+    endpoint,
+    payload=None,
+):
     url = f"{NOTION_API}{endpoint}"
 
     if payload is None:
@@ -108,9 +123,15 @@ def notion_request(method, endpoint, payload=None):
         data=body,
         method=method,
         headers={
-            "Authorization": f"Bearer {NOTION_TOKEN}",
-            "Notion-Version": NOTION_VERSION,
-            "Content-Type": "application/json",
+            "Authorization": (
+                f"Bearer {NOTION_TOKEN}"
+            ),
+            "Notion-Version": (
+                NOTION_VERSION
+            ),
+            "Content-Type": (
+                "application/json"
+            ),
         },
     )
 
@@ -119,11 +140,15 @@ def notion_request(method, endpoint, payload=None):
             request,
             timeout=30,
         ) as response:
-            response_text = response.read().decode(
-                "utf-8"
+            response_text = (
+                response.read().decode(
+                    "utf-8"
+                )
             )
 
-            return json.loads(response_text)
+            return json.loads(
+                response_text
+            )
 
     except HTTPError as exc:
         detail = exc.read().decode(
@@ -132,7 +157,8 @@ def notion_request(method, endpoint, payload=None):
         )
 
         raise RuntimeError(
-            f"Notion API 오류: HTTP {exc.code}\n"
+            f"Notion API 오류: "
+            f"HTTP {exc.code}\n"
             f"요청 주소: {url}\n"
             f"응답 내용: {detail}"
         ) from exc
@@ -174,16 +200,22 @@ def page_title(page):
     return ""
 
 
-def ticker_from_title(title, valid_tickers):
+def ticker_from_title(
+    title,
+    valid_tickers,
+):
     """
-    DAL - Delta Air Lines Q2 2026
-    위 제목에서 DAL을 추출합니다.
+    예:
+    AAL - American Airlines Group Inc. Q2 2026
+
+    위 제목에서 AAL을 추출합니다.
     """
 
     title_upper = title.upper()
 
     match = re.match(
-        r"^\s*([A-Z][A-Z0-9.\-]{0,9})"
+        r"^\s*"
+        r"([A-Z][A-Z0-9.\-]{0,9})"
         r"\s*[-–—]\s*",
         title_upper,
     )
@@ -199,6 +231,83 @@ def ticker_from_title(title, valid_tickers):
     return None
 
 
+def collect_valid_tickers():
+    """
+    calendar.json과
+    semiconductor-additions.json의
+    티커를 합칩니다.
+    """
+
+    valid_tickers = set()
+
+    for path in CALENDAR_FILES:
+        data = read_json(
+            path,
+            {
+                "entries": [],
+            },
+        )
+
+        entries = data.get(
+            "entries",
+            [],
+        )
+
+        if not isinstance(
+            entries,
+            list,
+        ):
+            raise RuntimeError(
+                f"entries가 배열이 아닙니다: "
+                f"{path}"
+            )
+
+        file_tickers = set()
+
+        for item in entries:
+            if not isinstance(
+                item,
+                dict,
+            ):
+                continue
+
+            ticker = str(
+                item.get(
+                    "ticker",
+                    "",
+                )
+            ).upper().strip()
+
+            if not ticker:
+                continue
+
+            file_tickers.add(
+                ticker
+            )
+
+            valid_tickers.add(
+                ticker
+            )
+
+        print(
+            f"{os.path.basename(path)}: "
+            f"티커 {len(file_tickers)}개 확인"
+        )
+
+    if not valid_tickers:
+        raise RuntimeError(
+            "일정 데이터에서 "
+            "티커를 찾지 못했습니다."
+        )
+
+    print(
+        f"Transcript 검색 대상: "
+        f"총 {len(valid_tickers)}개"
+    )
+
+    return valid_tickers
+
+
 def get_data_source_ids():
     database_id = re.sub(
         r"[^0-9a-fA-F]",
@@ -208,7 +317,8 @@ def get_data_source_ids():
 
     if len(database_id) != 32:
         raise RuntimeError(
-            "NOTION_DATABASE_ID가 올바르지 않습니다."
+            "NOTION_DATABASE_ID가 "
+            "올바르지 않습니다."
         )
 
     database = notion_request(
@@ -224,7 +334,9 @@ def get_data_source_ids():
     data_source_ids = []
 
     for source in data_sources:
-        source_id = source.get("id")
+        source_id = source.get(
+            "id"
+        )
 
         if source_id:
             data_source_ids.append(
@@ -233,16 +345,19 @@ def get_data_source_ids():
 
     if not data_source_ids:
         raise RuntimeError(
-            "Notion 데이터베이스의 data source를 "
-            "찾지 못했습니다. "
-            "26.2Q 미국 DB를 Notion Integration에 "
+            "Notion 데이터베이스의 "
+            "data source를 찾지 못했습니다. "
+            "26.2Q 미국 DB를 "
+            "Notion Integration에 "
             "연결했는지 확인하세요."
         )
 
     return data_source_ids
 
 
-def query_pages(data_source_id):
+def query_pages(
+    data_source_id,
+):
     pages = []
     cursor = None
 
@@ -252,11 +367,16 @@ def query_pages(data_source_id):
         }
 
         if cursor:
-            payload["start_cursor"] = cursor
+            payload[
+                "start_cursor"
+            ] = cursor
 
         response = notion_request(
             "POST",
-            f"/data_sources/{data_source_id}/query",
+            (
+                f"/data_sources/"
+                f"{data_source_id}/query"
+            ),
             payload,
         )
 
@@ -265,7 +385,9 @@ def query_pages(data_source_id):
             [],
         )
 
-        pages.extend(results)
+        pages.extend(
+            results
+        )
 
         has_more = response.get(
             "has_more",
@@ -287,28 +409,40 @@ def query_pages(data_source_id):
     return pages
 
 
-def collect_transcript_links(valid_tickers):
+def collect_transcript_links(
+    valid_tickers,
+):
     matched = {}
     total_pages = 0
 
-    data_source_ids = get_data_source_ids()
+    data_source_ids = (
+        get_data_source_ids()
+    )
 
-    for data_source_id in data_source_ids:
+    for data_source_id in (
+        data_source_ids
+    ):
         pages = query_pages(
             data_source_id
         )
 
-        total_pages += len(pages)
+        total_pages += len(
+            pages
+        )
 
         for page in pages:
-            title = page_title(page)
+            title = page_title(
+                page
+            )
 
             ticker = ticker_from_title(
                 title,
                 valid_tickers,
             )
 
-            url = page.get("url")
+            url = page.get(
+                "url"
+            )
 
             edited = page.get(
                 "last_edited_time",
@@ -321,18 +455,16 @@ def collect_transcript_links(valid_tickers):
             if not url:
                 continue
 
-            old = matched.get(ticker)
+            old = matched.get(
+                ticker
+            )
 
-            # 같은 티커 페이지가 여러 개면
-            # 최근 수정된 페이지를 사용합니다.
-            if old is None:
-                matched[ticker] = {
-                    "url": url,
-                    "edited": edited,
-                    "title": title,
-                }
-
-            elif edited > old["edited"]:
+            # 같은 티커 페이지가 여러 개라면
+            # 가장 최근에 수정된 페이지를 사용합니다.
+            if (
+                old is None
+                or edited > old["edited"]
+            ):
                 matched[ticker] = {
                     "url": url,
                     "edited": edited,
@@ -362,7 +494,9 @@ def collect_transcript_links(valid_tickers):
     for ticker, item in sorted(
         matched.items()
     ):
-        links[ticker] = item["url"]
+        links[ticker] = item[
+            "url"
+        ]
 
     return links
 
@@ -374,45 +508,30 @@ def main():
             "NOTION_TOKEN이 없습니다."
         )
 
-    calendar = read_json(
-        CALENDAR_FILE,
-        {
-            "entries": [],
-        },
+    # calendar.json과
+    # semiconductor-additions.json을
+    # 모두 읽습니다.
+    valid_tickers = (
+        collect_valid_tickers()
     )
 
-    valid_tickers = set()
-
-    for item in calendar.get(
-        "entries",
-        [],
-    ):
-        ticker = item.get("ticker")
-
-        if ticker:
-            valid_tickers.add(
-                str(ticker)
-                .upper()
-                .strip()
-            )
-
-    if not valid_tickers:
-        raise RuntimeError(
-            "data/calendar.json에서 "
-            "티커를 찾지 못했습니다."
+    links = (
+        collect_transcript_links(
+            valid_tickers
         )
+    )
 
     previous = read_json(
         OUTPUT_FILE,
         {
-            "source": "Notion 26.2Q 미국 DB",
-            "databaseId": NOTION_DATABASE_ID,
+            "source": (
+                "Notion 26.2Q 미국 DB"
+            ),
+            "databaseId": (
+                NOTION_DATABASE_ID
+            ),
             "links": {},
         },
-    )
-
-    links = collect_transcript_links(
-        valid_tickers
     )
 
     previous_links = previous.get(
@@ -420,22 +539,30 @@ def main():
         {},
     )
 
-    # 링크가 바뀌었을 때만 파일을 수정합니다.
     if links == previous_links:
         print(
-            "변경된 Transcript 링크가 없습니다."
+            "변경된 Transcript 링크가 "
+            "없습니다."
         )
 
         return
 
     kst = timezone(
-        timedelta(hours=9)
+        timedelta(
+            hours=9
+        )
     )
 
     output = {
-        "source": "Notion 26.2Q 미국 DB",
-        "databaseId": NOTION_DATABASE_ID,
-        "updated": datetime.now(kst).strftime(
+        "source": (
+            "Notion 26.2Q 미국 DB"
+        ),
+        "databaseId": (
+            NOTION_DATABASE_ID
+        ),
+        "updated": datetime.now(
+            kst
+        ).strftime(
             "%Y-%m-%d %H:%M KST"
         ),
         "links": links,
