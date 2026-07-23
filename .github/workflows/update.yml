@@ -6,9 +6,14 @@ on:
       - main
     paths:
       - .github/workflows/update.yml
+      - scripts/update_links.py
+      - data/calendar.json
+      - data/semiconductor-additions.json
+
   schedule:
-    # GitHub Actions 혼잡 시간대를 피해 매시 7분과 37분에 실행
+    # 매시 7분과 37분에 실행
     - cron: "7,37 * * * *"
+
   workflow_dispatch:
 
 permissions:
@@ -34,6 +39,11 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: JSON 파일 형식 확인
+        run: |
+          python -m json.tool data/calendar.json > /dev/null
+          python -m json.tool data/semiconductor-additions.json > /dev/null
+
       - name: NOTION_TOKEN 확인
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
@@ -47,7 +57,8 @@ jobs:
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_DATABASE_ID: d2c2cff2-91cc-82ac-ac28-0153506c607c
-        run: python scripts/update_links.py
+        run: |
+          python scripts/update_links.py
 
       - name: 변경사항 저장
         run: |
