@@ -1,7 +1,7 @@
 {
   "source": "Notion 26.2Q 미국 DB",
   "databaseId": "d2c2cff2-91cc-82ac-ac28-0153506c607c",
-  "updated": "2026-07-31 08:17 KST",
+  "updated": "2026-07-31 10:23 KST",
   "links": {
     "AA": "https://app.notion.com/p/AA-Alcoa-Corporation-Q2-2026-3a02cff291cc813894dac48039d948a7",
     "AAL": "https://app.notion.com/p/AAL-American-Airlines-Group-Inc-Q2-2026-3a62cff291cc81f0a588eff16a94ccd6",
@@ -18,6 +18,7 @@
     "ASML": "https://app.notion.com/p/ASML-ASML-Holding-N-V-Q2-2026-39e2cff291cc8159b659e8d5e70f38b3",
     "AUR": "https://app.notion.com/p/AUR-Aurora-Innovation-Inc-Q2-2026-3ac2cff291cc81c4bbcddf6772eb315b",
     "AXP": "https://app.notion.com/p/AXP-American-Express-Company-Q2-2026-3a72cff291cc81849ec1dc80bccdef58",
+    "AXTI": "https://app.notion.com/p/AXTI-AXT-Inc-Q2-2026-3ae2cff291cc817c84d5fc9dfae350d6",
     "AZN": "https://app.notion.com/p/AZN-AstraZeneca-PLC-Q2-2026-3ab2cff291cc8142929dd569e9c10c6e",
     "BA": "https://app.notion.com/p/BA-The-Boeing-Company-Q2-2026-3ab2cff291cc81249ba2d6f9d385cf33",
     "BAC": "https://app.notion.com/p/BAC-Bank-of-America-Corporation-Q2-2026-39d2cff291cc816d8d89dfee4582a3d4",
@@ -43,6 +44,7 @@
     "FFIV": "https://app.notion.com/p/FFIV-F5-Inc-Q3-2026-3ab2cff291cc81c38847ed6863b16c1f",
     "FORM": "https://app.notion.com/p/FORM-FormFactor-Inc-Q2-2026-3ac2cff291cc817a8781c37f931ad283",
     "FTAI": "https://app.notion.com/p/FTAI-FTAI-Aviation-Ltd-Q2-2026-3ad2cff291cc81c28123ecd42341aaeb",
+    "FTI": "https://app.notion.com/p/FTI-TechnipFMC-plc-Q2-2026-3ae2cff291cc815e84bcc9adfcf30e14",
     "FTNT": "https://app.notion.com/p/FTNT-Fortinet-Inc-Q2-2026-3ac2cff291cc81e188bbdf7c790482b2",
     "GD": "https://app.notion.com/p/GD-General-Dynamics-Corporation-Q2-2026-3ac2cff291cc81849aa7fea3fe1ca5d6",
     "GE": "https://app.notion.com/p/GE-General-Electric-Company-Q2-2026-3a02cff291cc81f59245cd7a3b5ba366",
@@ -76,6 +78,7 @@
     "NOW": "https://app.notion.com/p/NOW-ServiceNow-Inc-Q2-2026-3a52cff291cc81f29e28c25476e2bd60",
     "NVTS": "https://app.notion.com/p/NVTS-Navitas-Semiconductor-Corporation-Q2-2026-3ab2cff291cc8150b259c765bcad3e49",
     "NXPI": "https://app.notion.com/p/NXPI-NXP-Semiconductors-N-V-Q2-2026-3ab2cff291cc815ca5c1e2190aac5065",
+    "NXT": "https://app.notion.com/p/NXT-Nextpower-Inc-Q1-2027-3ad2cff291cc819fadcdee20c720625e",
     "PBF": "https://app.notion.com/p/PBF-PBF-Energy-Inc-Q2-2026-3ad2cff291cc81a783cef3095566d641",
     "PENG": "https://app.notion.com/p/PENG-Penguin-Solutions-Q2-2026-3992cff291cc816d83ebcc2f2f13bf5a",
     "PEP": "https://app.notion.com/p/PEP-PepsiCo-Q2-2026-39a2cff291cc81f2a0c1ddb59bd1b2ae",
@@ -98,6 +101,7 @@
     "STM": "https://app.notion.com/p/STM-STMicroelectronics-N-V-Q2-2026-3a62cff291cc8187bdecfecce40a8348",
     "STX": "https://app.notion.com/p/STX-Seagate-Technology-Holdings-plc-Q4-2026-3ab2cff291cc81bca75bfe1434003006",
     "T": "https://app.notion.com/p/T-AT-T-Inc-Q2-2026-3a52cff291cc819f9b4de965ce4154fe",
+    "TEM": "https://app.notion.com/p/TEM-Tempus-AI-Inc-Q2-2026-3ae2cff291cc81cdb84bea94967ecabc",
     "TER": "https://app.notion.com/p/TER-Teradyne-Inc-Q2-2026-3ac2cff291cc811ebd85f1d30a13ecda",
     "TMUS": "https://app.notion.com/p/TMUS-T-Mobile-US-Inc-Q2-2026-3a62cff291cc8195aeb4d74f81a7dce3",
     "TSLA": "https://app.notion.com/p/TSLA-Tesla-Inc-Q2-2026-3a52cff291cc8148b1c6dabc2f818155",
@@ -109,8 +113,10 @@
     "USB": "https://app.notion.com/p/USB-U-S-Bancorp-Q2-2026-3a02cff291cc8165b265ebc6889f536f",
     "V": "https://app.notion.com/p/V-Visa-Inc-Q3-2026-3ab2cff291cc8162b83bddcbdb65cbdb",
     "VICR": "https://app.notion.com/p/VICR-Vicor-Corporation-Q2-2026-3a42cff291cc81779208e008bdecc749",
+    "VLO": "https://app.notion.com/p/VLO-Valero-Energy-Corporation-Q2-2026-3ae2cff291cc81e6acddc18b03fe7f21",
     "VMI": "https://app.notion.com/p/VMI-Valmont-Industries-Inc-Q2-2026-3a42cff291cc817e8c79c87d9aad46e4",
     "VZ": "https://app.notion.com/p/VZ-Verizon-Communications-Inc-Q2-2026-3a72cff291cc817d9c33e1becf158678",
-    "WFC": "https://app.notion.com/p/WFC-Wells-Fargo-Company-Q2-2026-39d2cff291cc8176ae1ada5c48f24e3b"
+    "WFC": "https://app.notion.com/p/WFC-Wells-Fargo-Company-Q2-2026-39d2cff291cc8176ae1ada5c48f24e3b",
+    "YUM": "https://app.notion.com/p/YUM-Yum-Brands-Inc-Q2-2026-3ae2cff291cc8124a4a7f4ae40377f64"
   }
 }
