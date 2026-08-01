@@ -1,11 +1,12 @@
 {
   "source": "Notion 26.2Q 미국 DB",
   "databaseId": "d2c2cff2-91cc-82ac-ac28-0153506c607c",
-  "updated": "2026-08-01 01:08 KST",
+  "updated": "2026-08-01 17:56 KST",
   "links": {
     "AA": "https://app.notion.com/p/AA-Alcoa-Corporation-Q2-2026-3a02cff291cc813894dac48039d948a7",
     "AAL": "https://app.notion.com/p/AAL-American-Airlines-Group-Inc-Q2-2026-3a62cff291cc81f0a588eff16a94ccd6",
     "AAPL": "https://app.notion.com/p/AAPL-Apple-Inc-Q3-2026-3ad2cff291cc818f8221d188cc2dd586",
+    "ABBV": "https://app.notion.com/p/ABBV-AbbVie-Inc-Q2-2026-3af2cff291cc81a09b6cea34c63ae473",
     "AEHR": "https://app.notion.com/p/AEHR-Aehr-Test-Systems-Inc-Q2-2026-39d2cff291cc81c7bca1c701529287cd",
     "AEP": "https://app.notion.com/p/AEP-American-Electric-Power-Company-Inc-Q2-2026-3ad2cff291cc81198533e4f0db0537da",
     "AIR": "https://app.notion.com/p/AIR-AAR-Corp-Q2-2026-3a52cff291cc811e8e0ce88cd13bca26",
@@ -39,8 +40,10 @@
     "ENPH": "https://app.notion.com/p/ENPH-Enphase-Energy-Inc-Q2-2026-3ab2cff291cc8108921af4d05549decc",
     "EQIX": "https://app.notion.com/p/EQIX-Equinix-Inc-Q2-2026-3ac2cff291cc816483b2f02abcadc3d9",
     "ERIC": "https://app.notion.com/p/ERIC-Telefonaktiebolaget-LM-Ericsson-publ-Q2-2026-39d2cff291cc81b5805be5b4f738f2d9",
+    "ETN": "https://app.notion.com/p/ETN-Eaton-Corporation-plc-Q2-2026-3af2cff291cc8151bc37c9988179772a",
     "F": "https://app.notion.com/p/F-Ford-Motor-Company-Q2-2026-3ab2cff291cc8136adeccd74d73c486f",
     "FAST": "https://app.notion.com/p/FAST-Fastenal-Company-Q2-2026-39d2cff291cc8144a2c2e928816d6ed7",
+    "FET": "https://app.notion.com/p/FET-Forum-Energy-Technologies-Inc-Q2-2026-3af2cff291cc81f695b8ddde34dea52c",
     "FFIV": "https://app.notion.com/p/FFIV-F5-Inc-Q3-2026-3ab2cff291cc81c38847ed6863b16c1f",
     "FORM": "https://app.notion.com/p/FORM-FormFactor-Inc-Q2-2026-3ac2cff291cc817a8781c37f931ad283",
     "FSLR": "https://app.notion.com/p/FSLR-First-Solar-Inc-Q2-2026-3ae2cff291cc812a86e9db51b384cbe2",
@@ -65,11 +68,13 @@
     "KMI": "https://app.notion.com/p/KMI-Kinder-Morgan-Inc-Q2-2026-3a52cff291cc81e7a624dc12c14af244",
     "KO": "https://app.notion.com/p/KO-The-Coca-Cola-Company-Q2-2026-3ab2cff291cc8194b9c6eec9a5bd13a3",
     "LHX": "https://app.notion.com/p/LHX-L3Harris-Technologies-Inc-Q2-2026-3ac2cff291cc811db1c2ffddf6cd0fc8",
+    "LIN": "https://app.notion.com/p/LIN-Linde-plc-Q2-2026-3af2cff291cc8144b14cd442946d5c8d",
     "LMT": "https://app.notion.com/p/LMT-Lockheed-Martin-Corporation-Q2-2026-3a62cff291cc81df8f29c45cb42b7a22",
     "LRCX": "https://app.notion.com/p/LRCX-Lam-Research-Corporation-Q2-2026-3ac2cff291cc8113a155df33f67feed9",
     "META": "https://app.notion.com/p/META-Meta-Platforms-Inc-Q2-2026-3ac2cff291cc811e8b68d2b35108e1c0",
     "MGM": "https://app.notion.com/p/MGM-MGM-Resorts-International-Q2-2026-3ac2cff291cc8151aea5e238e9e29009",
     "MPWR": "https://app.notion.com/p/MPWR-Monolithic-Power-Systems-Inc-Q2-2026-3ad2cff291cc81b19bc1c6b000a19c48",
+    "MRNA": "https://app.notion.com/p/MRNA-Moderna-Inc-Q2-2026-3af2cff291cc814eb212cc3b8a07c158",
     "MS": "https://app.notion.com/p/MS-Morgan-Stanley-Q2-2026-39f2cff291cc81a9a5cadc6df1f9af55",
     "MSFT": "https://app.notion.com/p/MSFT-Microsoft-Corporation-Q4-2026-3ac2cff291cc81c38665c81406adb07a",
     "MSTR": "https://app.notion.com/p/MSTR-Strategy-Inc-Q2-2026-3ae2cff291cc81df94a0d1eaf77d1b3d",
@@ -123,6 +128,7 @@
     "VMI": "https://app.notion.com/p/VMI-Valmont-Industries-Inc-Q2-2026-3a42cff291cc817e8c79c87d9aad46e4",
     "VZ": "https://app.notion.com/p/VZ-Verizon-Communications-Inc-Q2-2026-3a72cff291cc817d9c33e1becf158678",
     "WFC": "https://app.notion.com/p/WFC-Wells-Fargo-Company-Q2-2026-39d2cff291cc8176ae1ada5c48f24e3b",
+    "XOM": "https://app.notion.com/p/XOM-ExxonMobil-Holdings-Corporation-Q2-2026-3af2cff291cc816589cfd97fbd4fb1ee",
     "YUM": "https://app.notion.com/p/YUM-Yum-Brands-Inc-Q2-2026-3ae2cff291cc8124a4a7f4ae40377f64"
   }
 }
