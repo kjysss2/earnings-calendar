@@ -1,7 +1,7 @@
 {
   "source": "Notion 26.2Q 미국 DB",
   "databaseId": "d2c2cff2-91cc-82ac-ac28-0153506c607c",
-  "updated": "2026-08-01 17:56 KST",
+  "updated": "2026-08-02 00:47 KST",
   "links": {
     "AA": "https://app.notion.com/p/AA-Alcoa-Corporation-Q2-2026-3a02cff291cc813894dac48039d948a7",
     "AAL": "https://app.notion.com/p/AAL-American-Airlines-Group-Inc-Q2-2026-3a62cff291cc81f0a588eff16a94ccd6",
@@ -32,6 +32,7 @@
     "CLF": "https://app.notion.com/p/CLF-Cleveland-Cliffs-Inc-Q2-2026-3a62cff291cc81d8b165c0c1e12179fe",
     "COIN": "https://app.notion.com/p/COIN-Coinbase-Global-Inc-Q2-2026-3ad2cff291cc81f98500e82c95c27d87",
     "CVNA": "https://app.notion.com/p/CVNA-Carvana-Co-Q2-2026-3ad2cff291cc81d1b68cd9e43a4d6a93",
+    "CVX": "https://app.notion.com/p/CVX-Chevron-Corporation-Q2-2026-3af2cff291cc816b88b8e8eb64d283b2",
     "DAL": "https://app.notion.com/p/DAL-Delta-Air-Lines-Q2-2026-39a2cff291cc8123816ae17f4409ecc1",
     "DHR": "https://app.notion.com/p/DHR-Danaher-Corporation-Q2-2026-3a42cff291cc81eab824d6871d949bd8",
     "DINO": "https://app.notion.com/p/DINO-HF-Sinclair-Corporation-Q2-2026-3ab2cff291cc811b8e5fcf3f042b5948",
@@ -107,6 +108,7 @@
     "SNY": "https://app.notion.com/p/SNY-Sanofi-Q2-2026-3ad2cff291cc8189976ff754a8eaf17f",
     "SOFI": "https://app.notion.com/p/SOFI-SoFi-Technologies-Inc-Q2-2026-3ac2cff291cc816db3cfd48f9c77f4c7",
     "SONO": "https://app.notion.com/p/SONO-Sonos-Inc-Q3-2026-3ae2cff291cc81c0a366d0cb3c899314",
+    "SONY": "https://app.notion.com/p/SONY-Sony-Group-Corporation-Q2-2026-3af2cff291cc81c593d9ff1212c83713",
     "STLA": "https://app.notion.com/p/STLA-Stellantis-N-V-Q2-2026-3ad2cff291cc81c2b734d519e35c6398",
     "STLD": "https://app.notion.com/p/STLD-Steel-Dynamics-Inc-Q2-2026-3a42cff291cc811c85acc783c8a20014",
     "STM": "https://app.notion.com/p/STM-STMicroelectronics-N-V-Q2-2026-3a62cff291cc8187bdecfecce40a8348",
