@@ -1,7 +1,7 @@
 {
   "source": "Notion 26.2Q 미국 DB",
   "databaseId": "d2c2cff2-91cc-82ac-ac28-0153506c607c",
-  "updated": "2026-08-04 09:37 KST",
+  "updated": "2026-08-04 22:53 KST",
   "links": {
     "AA": "https://app.notion.com/p/AA-Alcoa-Corporation-Q2-2026-3a02cff291cc813894dac48039d948a7",
     "AAL": "https://app.notion.com/p/AAL-American-Airlines-Group-Inc-Q2-2026-3a62cff291cc81f0a588eff16a94ccd6",
@@ -27,6 +27,7 @@
     "BE": "https://app.notion.com/p/BE-Bloom-Energy-Corporation-Q2-2026-3ab2cff291cc8145ba56ff7135be4195",
     "BKR": "https://app.notion.com/p/BKR-Baker-Hughes-Company-Q2-2026-3ab2cff291cc81e4b1d1fc15bd1fbfa0",
     "BLK": "https://app.notion.com/p/BLK-BlackRock-Inc-Q2-2026-39e2cff291cc81629484d27b236d53fd",
+    "BP": "https://app.notion.com/p/BP-BP-p-l-c-Q2-2026-3b22cff291cc81a0bd1dc572d57a398a",
     "C": "https://app.notion.com/p/C-Citigroup-Inc-Q2-2026-39d2cff291cc81499adfdc0d2b9ff106",
     "CDNS": "https://app.notion.com/p/CDNS-Cadence-Design-Systems-Inc-Q2-2026-3ab2cff291cc813abc2cd809f224f9d2",
     "CLF": "https://app.notion.com/p/CLF-Cleveland-Cliffs-Inc-Q2-2026-3a62cff291cc81d8b165c0c1e12179fe",
@@ -109,8 +110,10 @@
     "SIMO": "https://app.notion.com/p/SIMO-Silicon-Motion-Technology-Corporation-Q2-2026-3ad2cff291cc8149a357de80ee7a0242",
     "SNY": "https://app.notion.com/p/SNY-Sanofi-Q2-2026-3ad2cff291cc8189976ff754a8eaf17f",
     "SOFI": "https://app.notion.com/p/SOFI-SoFi-Technologies-Inc-Q2-2026-3ac2cff291cc816db3cfd48f9c77f4c7",
+    "SOLS": "https://app.notion.com/p/SOLS-Solstice-Advanced-Materials-Inc-Q2-2026-3b22cff291cc81f5a36ec1e6bbe5b80e",
     "SONO": "https://app.notion.com/p/SONO-Sonos-Inc-Q3-2026-3ae2cff291cc81c0a366d0cb3c899314",
     "SONY": "https://app.notion.com/p/SONY-Sony-Group-Corporation-Q2-2026-3af2cff291cc81c593d9ff1212c83713",
+    "SPOT": "https://app.notion.com/p/SPOT-Spotify-Technology-S-A-Q2-2026-3b22cff291cc816d9737e30ee1acf783",
     "STLA": "https://app.notion.com/p/STLA-Stellantis-N-V-Q2-2026-3ad2cff291cc81c2b734d519e35c6398",
     "STLD": "https://app.notion.com/p/STLD-Steel-Dynamics-Inc-Q2-2026-3a42cff291cc811c85acc783c8a20014",
     "STM": "https://app.notion.com/p/STM-STMicroelectronics-N-V-Q2-2026-3a62cff291cc8187bdecfecce40a8348",
