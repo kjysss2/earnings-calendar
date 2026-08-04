@@ -809,6 +809,12 @@
     {
       "date": "2026-08-04",
       "session": "after",
+      "name": "스페이스X",
+      "ticker": "SPCX"
+    },
+    {
+      "date": "2026-08-04",
+      "session": "after",
       "name": "아리스타네트웍스",
       "ticker": "ANET",
       "hl": true
