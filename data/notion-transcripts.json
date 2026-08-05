@@ -1,7 +1,7 @@
 {
   "source": "Notion 26.2Q 미국 DB",
   "databaseId": "d2c2cff2-91cc-82ac-ac28-0153506c607c",
-  "updated": "2026-08-05 11:14 KST",
+  "updated": "2026-08-05 15:14 KST",
   "links": {
     "AA": "https://app.notion.com/p/AA-Alcoa-Corporation-Q2-2026-3a02cff291cc813894dac48039d948a7",
     "AAL": "https://app.notion.com/p/AAL-American-Airlines-Group-Inc-Q2-2026-3a62cff291cc81f0a588eff16a94ccd6",
@@ -15,6 +15,7 @@
     "AMGN": "https://app.notion.com/p/AMGN-Amgen-Inc-Q2-2026-3b32cff291cc812980dfd2e89c412c41",
     "AMKR": "https://app.notion.com/p/AMKR-Amkor-Technology-Inc-Q2-2026-3aa2cff291cc8110a15fcb7c3ffa6b14",
     "AMZN": "https://app.notion.com/p/AMZN-Amazon-com-Inc-Q2-2026-3ad2cff291cc81c08e96eb2598d751df",
+    "ANET": "https://app.notion.com/p/ANET-Arista-Networks-Inc-Q2-2026-3b32cff291cc81778cb1fbbfc2ec9153",
     "APH": "https://app.notion.com/p/APH-Amphenol-Corporation-Q2-2026-3ac2cff291cc81a58817e4c8835574a5",
     "APLD": "https://app.notion.com/p/APLD-Applied-Digital-Corporation-Q4-2026-3ab2cff291cc816b90e2e02edf5be673",
     "ARGX": "https://app.notion.com/p/ARGX-argenx-SE-Q2-2026-3a62cff291cc811eb61dd65b2ba30290",
@@ -81,6 +82,7 @@
     "LIN": "https://app.notion.com/p/LIN-Linde-plc-Q2-2026-3af2cff291cc8144b14cd442946d5c8d",
     "LMT": "https://app.notion.com/p/LMT-Lockheed-Martin-Corporation-Q2-2026-3a62cff291cc81df8f29c45cb42b7a22",
     "LRCX": "https://app.notion.com/p/LRCX-Lam-Research-Corporation-Q2-2026-3ac2cff291cc8113a155df33f67feed9",
+    "MCD": "https://app.notion.com/p/MCD-McDonald-s-Corporation-Q2-2026-3b32cff291cc8199a719dab73417e495",
     "META": "https://app.notion.com/p/META-Meta-Platforms-Inc-Q2-2026-3ac2cff291cc811e8b68d2b35108e1c0",
     "MGM": "https://app.notion.com/p/MGM-MGM-Resorts-International-Q2-2026-3ac2cff291cc8151aea5e238e9e29009",
     "MPC": "https://app.notion.com/p/MPC-Marathon-Petroleum-Corporation-Q2-2026-3b22cff291cc81538811e415ad253068",
@@ -131,6 +133,7 @@
     "STLD": "https://app.notion.com/p/STLD-Steel-Dynamics-Inc-Q2-2026-3a42cff291cc811c85acc783c8a20014",
     "STM": "https://app.notion.com/p/STM-STMicroelectronics-N-V-Q2-2026-3a62cff291cc8187bdecfecce40a8348",
     "STX": "https://app.notion.com/p/STX-Seagate-Technology-Holdings-plc-Q4-2026-3ab2cff291cc81bca75bfe1434003006",
+    "SWKS": "https://app.notion.com/p/SWKS-Skyworks-Solutions-Inc-Q2-2026-3b32cff291cc811fa26ec65f7d268a5c",
     "T": "https://app.notion.com/p/T-AT-T-Inc-Q2-2026-3a52cff291cc819f9b4de965ce4154fe",
     "TEM": "https://app.notion.com/p/TEM-Tempus-AI-Inc-Q2-2026-3ae2cff291cc81cdb84bea94967ecabc",
     "TER": "https://app.notion.com/p/TER-Teradyne-Inc-Q2-2026-3ac2cff291cc811ebd85f1d30a13ecda",
