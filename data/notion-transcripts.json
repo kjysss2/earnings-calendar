@@ -1,7 +1,7 @@
 {
   "source": "Notion 26.2Q 미국 DB",
   "databaseId": "d2c2cff2-91cc-82ac-ac28-0153506c607c",
-  "updated": "2026-08-05 10:10 KST",
+  "updated": "2026-08-05 11:14 KST",
   "links": {
     "AA": "https://app.notion.com/p/AA-Alcoa-Corporation-Q2-2026-3a02cff291cc813894dac48039d948a7",
     "AAL": "https://app.notion.com/p/AAL-American-Airlines-Group-Inc-Q2-2026-3a62cff291cc81f0a588eff16a94ccd6",
@@ -10,7 +10,9 @@
     "AEHR": "https://app.notion.com/p/AEHR-Aehr-Test-Systems-Inc-Q2-2026-39d2cff291cc81c7bca1c701529287cd",
     "AEP": "https://app.notion.com/p/AEP-American-Electric-Power-Company-Inc-Q2-2026-3ad2cff291cc81198533e4f0db0537da",
     "AIR": "https://app.notion.com/p/AIR-AAR-Corp-Q2-2026-3a52cff291cc811e8e0ce88cd13bca26",
+    "ALAB": "https://app.notion.com/p/ALAB-Astera-Labs-Inc-Q2-2026-3b32cff291cc81babf2eec05441f9062",
     "AMD": "https://app.notion.com/p/AMD-Advanced-Micro-Devices-Inc-Q2-2026-3b22cff291cc813aad56cddaf80c64c6",
+    "AMGN": "https://app.notion.com/p/AMGN-Amgen-Inc-Q2-2026-3b32cff291cc812980dfd2e89c412c41",
     "AMKR": "https://app.notion.com/p/AMKR-Amkor-Technology-Inc-Q2-2026-3aa2cff291cc8110a15fcb7c3ffa6b14",
     "AMZN": "https://app.notion.com/p/AMZN-Amazon-com-Inc-Q2-2026-3ad2cff291cc81c08e96eb2598d751df",
     "APH": "https://app.notion.com/p/APH-Amphenol-Corporation-Q2-2026-3ac2cff291cc81a58817e4c8835574a5",
@@ -26,6 +28,7 @@
     "BAC": "https://app.notion.com/p/BAC-Bank-of-America-Corporation-Q2-2026-39d2cff291cc816d8d89dfee4582a3d4",
     "BAH": "https://app.notion.com/p/BAH-Booz-Allen-Hamilton-Holding-Corporation-Q2-2026-3a72cff291cc81d6871ec54f807d3500",
     "BE": "https://app.notion.com/p/BE-Bloom-Energy-Corporation-Q2-2026-3ab2cff291cc8145ba56ff7135be4195",
+    "BKNG": "https://app.notion.com/p/BKNG-Booking-Holdings-Inc-Q2-2026-3b32cff291cc8151bff9ce3561a36090",
     "BKR": "https://app.notion.com/p/BKR-Baker-Hughes-Company-Q2-2026-3ab2cff291cc81e4b1d1fc15bd1fbfa0",
     "BLK": "https://app.notion.com/p/BLK-BlackRock-Inc-Q2-2026-39e2cff291cc81629484d27b236d53fd",
     "BP": "https://app.notion.com/p/BP-BP-p-l-c-Q2-2026-3b22cff291cc81a0bd1dc572d57a398a",
@@ -140,6 +143,7 @@
     "UCTT": "https://app.notion.com/p/UCTT-Ultra-Clean-Holdings-Inc-Q2-2026-3b12cff291cc81519a23f99c2beb62ac",
     "UMC": "https://app.notion.com/p/UMC-United-Microelectronics-Corporation-Q2-2026-3ac2cff291cc8131995ee5a4e9e9cdd8",
     "UNH": "https://app.notion.com/p/UNH-UnitedHealth-Group-Incorporated-Q2-2026-3a02cff291cc8158aaafd326e697d696",
+    "UPST": "https://app.notion.com/p/UPST-Upstart-Holdings-Inc-Q2-2026-3b32cff291cc81e1bd03e1f9a58db51e",
     "USB": "https://app.notion.com/p/USB-U-S-Bancorp-Q2-2026-3a02cff291cc8165b265ebc6889f536f",
     "V": "https://app.notion.com/p/V-Visa-Inc-Q3-2026-3ab2cff291cc8162b83bddcbdb65cbdb",
     "VICR": "https://app.notion.com/p/VICR-Vicor-Corporation-Q2-2026-3a42cff291cc81779208e008bdecc749",
@@ -147,6 +151,7 @@
     "VMI": "https://app.notion.com/p/VMI-Valmont-Industries-Inc-Q2-2026-3a42cff291cc817e8c79c87d9aad46e4",
     "VZ": "https://app.notion.com/p/VZ-Verizon-Communications-Inc-Q2-2026-3a72cff291cc817d9c33e1becf158678",
     "WFC": "https://app.notion.com/p/WFC-Wells-Fargo-Company-Q2-2026-39d2cff291cc8176ae1ada5c48f24e3b",
+    "WYNN": "https://app.notion.com/p/WYNN-Wynn-Resorts-Limited-Q2-2026-3b32cff291cc81e0a4d0edbd863ecd3c",
     "XOM": "https://app.notion.com/p/XOM-ExxonMobil-Holdings-Corporation-Q2-2026-3af2cff291cc816589cfd97fbd4fb1ee",
     "YUM": "https://app.notion.com/p/YUM-Yum-Brands-Inc-Q2-2026-3ae2cff291cc8124a4a7f4ae40377f64"
   }
