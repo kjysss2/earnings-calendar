@@ -1,7 +1,7 @@
 {
   "source": "Notion 26.2Q 미국 DB",
   "databaseId": "d2c2cff2-91cc-82ac-ac28-0153506c607c",
-  "updated": "2026-08-06 14:04 KST",
+  "updated": "2026-08-06 17:03 KST",
   "links": {
     "AA": "https://app.notion.com/p/AA-Alcoa-Corporation-Q2-2026-3a02cff291cc813894dac48039d948a7",
     "AAL": "https://app.notion.com/p/AAL-American-Airlines-Group-Inc-Q2-2026-3a62cff291cc81f0a588eff16a94ccd6",
@@ -21,6 +21,7 @@
     "APP": "https://app.notion.com/p/APP-AppLovin-Corporation-Q2-2026-3b32cff291cc8119880ae23b3da59d22",
     "ARGX": "https://app.notion.com/p/ARGX-argenx-SE-Q2-2026-3a62cff291cc811eb61dd65b2ba30290",
     "ARM": "https://app.notion.com/p/ARM-Arm-Holdings-plc-Q1-2027-3ac2cff291cc81498941c9f5aba0f036",
+    "ARRY": "https://app.notion.com/p/ARRY-Array-Technologies-Inc-Q2-2026-3b42cff291cc817ab588d6453c678a6f",
     "ASML": "https://app.notion.com/p/ASML-ASML-Holding-N-V-Q2-2026-39e2cff291cc8159b659e8d5e70f38b3",
     "AUR": "https://app.notion.com/p/AUR-Aurora-Innovation-Inc-Q2-2026-3ac2cff291cc81c4bbcddf6772eb315b",
     "AXP": "https://app.notion.com/p/AXP-American-Express-Company-Q2-2026-3a72cff291cc81849ec1dc80bccdef58",
@@ -40,6 +41,7 @@
     "CLF": "https://app.notion.com/p/CLF-Cleveland-Cliffs-Inc-Q2-2026-3a62cff291cc81d8b165c0c1e12179fe",
     "CMI": "https://app.notion.com/p/CMI-Cummins-Inc-Q2-2026-3b22cff291cc812a943bd35a91bc629f",
     "COIN": "https://app.notion.com/p/COIN-Coinbase-Global-Inc-Q2-2026-3ad2cff291cc81f98500e82c95c27d87",
+    "CRUS": "https://app.notion.com/p/CRUS-Cirrus-Logic-Inc-Q2-2026-3b42cff291cc81119653e1c043aad922",
     "CVNA": "https://app.notion.com/p/CVNA-Carvana-Co-Q2-2026-3ad2cff291cc81d1b68cd9e43a4d6a93",
     "CVX": "https://app.notion.com/p/CVX-Chevron-Corporation-Q2-2026-3af2cff291cc816b88b8e8eb64d283b2",
     "DAL": "https://app.notion.com/p/DAL-Delta-Air-Lines-Q2-2026-39a2cff291cc8123816ae17f4409ecc1",
@@ -131,6 +133,7 @@
     "SDVKY": "https://app.notion.com/p/SDVKY-Sandvik-AB-publ-Q2-2026-3a02cff291cc8132951af609f00c5983",
     "SHOP": "https://app.notion.com/p/SHOP-Shopify-Inc-Q2-2026-3b32cff291cc815997eee117927d363c",
     "SIMO": "https://app.notion.com/p/SIMO-Silicon-Motion-Technology-Corporation-Q2-2026-3ad2cff291cc8149a357de80ee7a0242",
+    "SITM": "https://app.notion.com/p/SITM-SiTime-Corporation-Q2-2026-3b42cff291cc819293b5d864f2035eae",
     "SMR": "https://app.notion.com/p/SMR-NuScale-Power-Corporation-Q2-2026-3b42cff291cc81659cefc43246edfcde",
     "SNDK": "https://app.notion.com/p/SNDK-Sandisk-Corporation-Q2-2026-3b32cff291cc81619bc8d6f0f492893f",
     "SNY": "https://app.notion.com/p/SNY-Sanofi-Q2-2026-3ad2cff291cc8189976ff754a8eaf17f",
