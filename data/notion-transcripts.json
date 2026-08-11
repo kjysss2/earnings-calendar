@@ -1,7 +1,7 @@
 {
   "source": "Notion 26.2Q 미국 DB",
   "databaseId": "d2c2cff2-91cc-82ac-ac28-0153506c607c",
-  "updated": "2026-08-10 11:26 KST",
+  "updated": "2026-08-11 11:15 KST",
   "links": {
     "AA": "https://app.notion.com/p/AA-Alcoa-Corporation-Q2-2026-3a02cff291cc813894dac48039d948a7",
     "AAL": "https://app.notion.com/p/AAL-American-Airlines-Group-Inc-Q2-2026-3a62cff291cc81f0a588eff16a94ccd6",
@@ -83,6 +83,7 @@
     "GRMN": "https://app.notion.com/p/GRMN-Garmin-Ltd-Q2-2026-3ae2cff291cc8188bc64ec1b983d475a",
     "GS": "https://app.notion.com/p/GS-The-Goldman-Sachs-Group-Inc-Q2-2026-39d2cff291cc8122a476e10476dd158d",
     "HII": "https://app.notion.com/p/HII-Huntington-Ingalls-Industries-Inc-Q2-2026-3ad2cff291cc8149a405dc96deef933d",
+    "HIMS": "https://app.notion.com/p/HIMS-Hims-Hers-Health-Inc-Q2-2026-3b92cff291cc814e879fce83bffbcfa5",
     "HIMX": "https://app.notion.com/p/HIMX-Himax-Technologies-Inc-Q2-2026-3b42cff291cc81cebac7c8a0bf9b9a9a",
     "HOOD": "https://app.notion.com/p/HOOD-Robinhood-Markets-Inc-Q2-2026-3ac2cff291cc81128b0bfe6cdf0d49b2",
     "HUT": "https://app.notion.com/p/HUT-Hut-8-Corp-Q2-2026-3b22cff291cc8113a1cce0e70cab5389",
