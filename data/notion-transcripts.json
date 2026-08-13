@@ -1,7 +1,7 @@
 {
   "source": "Notion 26.2Q 미국 DB",
   "databaseId": "d2c2cff2-91cc-82ac-ac28-0153506c607c",
-  "updated": "2026-08-12 23:38 KST",
+  "updated": "2026-08-13 12:10 KST",
   "links": {
     "AA": "https://app.notion.com/p/AA-Alcoa-Corporation-Q2-2026-3a02cff291cc813894dac48039d948a7",
     "AAL": "https://app.notion.com/p/AAL-American-Airlines-Group-Inc-Q2-2026-3a62cff291cc81f0a588eff16a94ccd6",
@@ -21,6 +21,7 @@
     "AMKR": "https://app.notion.com/p/AMKR-Amkor-Technology-Inc-Q2-2026-3aa2cff291cc8110a15fcb7c3ffa6b14",
     "AMZN": "https://app.notion.com/p/AMZN-Amazon-com-Inc-Q2-2026-3ad2cff291cc81c08e96eb2598d751df",
     "ANET": "https://app.notion.com/p/ANET-Arista-Networks-Inc-Q2-2026-3b32cff291cc81778cb1fbbfc2ec9153",
+    "AOSL": "https://app.notion.com/p/AOSL-Alpha-and-Omega-Semiconductor-Limited-Q2-2026-3bb2cff291cc8131a34ac68028306f52",
     "APH": "https://app.notion.com/p/APH-Amphenol-Corporation-Q2-2026-3ac2cff291cc81a58817e4c8835574a5",
     "APLD": "https://app.notion.com/p/APLD-Applied-Digital-Corporation-Q4-2026-3ab2cff291cc816b90e2e02edf5be673",
     "APP": "https://app.notion.com/p/APP-AppLovin-Corporation-Q2-2026-3b32cff291cc8119880ae23b3da59d22",
@@ -49,6 +50,7 @@
     "COIN": "https://app.notion.com/p/COIN-Coinbase-Global-Inc-Q2-2026-3ad2cff291cc81f98500e82c95c27d87",
     "CRUS": "https://app.notion.com/p/CRUS-Cirrus-Logic-Inc-Q2-2026-3b42cff291cc81119653e1c043aad922",
     "CRWV": "https://app.notion.com/p/CRWV-CoreWeave-Inc-Q2-2026-3b92cff291cc81b1b84ecd8695937272",
+    "CSCO": "https://app.notion.com/p/CSCO-Cisco-Systems-Inc-Q2-2026-3bb2cff291cc81239e25d1e6ab4c15ea",
     "CVNA": "https://app.notion.com/p/CVNA-Carvana-Co-Q2-2026-3ad2cff291cc81d1b68cd9e43a4d6a93",
     "CVX": "https://app.notion.com/p/CVX-Chevron-Corporation-Q2-2026-3af2cff291cc816b88b8e8eb64d283b2",
     "DAL": "https://app.notion.com/p/DAL-Delta-Air-Lines-Q2-2026-39a2cff291cc8123816ae17f4409ecc1",
