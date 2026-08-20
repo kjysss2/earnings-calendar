@@ -1,7 +1,7 @@
 {
   "source": "Notion 26.2Q 미국 DB",
   "databaseId": "d2c2cff2-91cc-82ac-ac28-0153506c607c",
-  "updated": "2026-08-14 07:20 KST",
+  "updated": "2026-08-20 15:58 KST",
   "links": {
     "AA": "https://app.notion.com/p/AA-Alcoa-Corporation-Q2-2026-3a02cff291cc813894dac48039d948a7",
     "AAL": "https://app.notion.com/p/AAL-American-Airlines-Group-Inc-Q2-2026-3a62cff291cc81f0a588eff16a94ccd6",
@@ -161,6 +161,7 @@
     "SITM": "https://app.notion.com/p/SITM-SiTime-Corporation-Q2-2026-3b42cff291cc819293b5d864f2035eae",
     "SMR": "https://app.notion.com/p/SMR-NuScale-Power-Corporation-Q2-2026-3b42cff291cc81659cefc43246edfcde",
     "SNDK": "https://app.notion.com/p/SNDK-Sandisk-Corporation-Q2-2026-3b32cff291cc81619bc8d6f0f492893f",
+    "SNPS": "https://app.notion.com/p/SNPS-Synopsys-Inc-Q2-2026-3c22cff291cc8116909ffe314f2ad628",
     "SNY": "https://app.notion.com/p/SNY-Sanofi-Q2-2026-3ad2cff291cc8189976ff754a8eaf17f",
     "SOFI": "https://app.notion.com/p/SOFI-SoFi-Technologies-Inc-Q2-2026-3ac2cff291cc816db3cfd48f9c77f4c7",
     "SOLS": "https://app.notion.com/p/SOLS-Solstice-Advanced-Materials-Inc-Q2-2026-3b22cff291cc81f5a36ec1e6bbe5b80e",
