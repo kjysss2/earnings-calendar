@@ -1,7 +1,7 @@
 {
   "source": "Notion 26.2Q 미국 DB",
   "databaseId": "d2c2cff2-91cc-82ac-ac28-0153506c607c",
-  "updated": "2026-08-20 15:58 KST",
+  "updated": "2026-08-27 12:30 KST",
   "links": {
     "AA": "https://app.notion.com/p/AA-Alcoa-Corporation-Q2-2026-3a02cff291cc813894dac48039d948a7",
     "AAL": "https://app.notion.com/p/AAL-American-Airlines-Group-Inc-Q2-2026-3a62cff291cc81f0a588eff16a94ccd6",
@@ -130,6 +130,7 @@
     "NOC": "https://app.notion.com/p/NOC-Northrop-Grumman-Corporation-Q2-2026-3a42cff291cc816083d1e16186b1eda4",
     "NOK": "https://app.notion.com/p/NOK-Nokia-Oyj-Q2-2026-3a62cff291cc8151bac0f096f787fdac",
     "NOW": "https://app.notion.com/p/NOW-ServiceNow-Inc-Q2-2026-3a52cff291cc81f29e28c25476e2bd60",
+    "NVDA": "https://app.notion.com/p/NVDA-NVIDIA-Corporation-Q2-2026-3c82cff291cc813a8fb0eee002ccf2d2",
     "NVTS": "https://app.notion.com/p/NVTS-Navitas-Semiconductor-Corporation-Q2-2026-3ab2cff291cc8150b259c765bcad3e49",
     "NXPI": "https://app.notion.com/p/NXPI-NXP-Semiconductors-N-V-Q2-2026-3ab2cff291cc815ca5c1e2190aac5065",
     "NXT": "https://app.notion.com/p/NXT-Nextpower-Inc-Q1-2027-3ad2cff291cc819fadcdee20c720625e",
