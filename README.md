@@ -1,47 +1,37 @@
-# 실적발표 캘린더 (GitHub Pages)
+# 26.3Q 실적발표 캘린더 (GitHub Pages)
 
-실적발표 일정을 주간 그리드(장전/장후)로 보여주고, Notion의 `26.2Q 미국 DB`에 정리된 Transcript 페이지가 있으면 회사명 옆에 링크를 표시하는 사이트입니다.
+`data/calendar.json`에 등록된 2026년 3분기 실적발표 일정을 주간 그리드로 보여주는 정적 캘린더입니다. 참고 사이트와 같은 `장전 / 장후 / 시간미정` 구조를 사용하며, 회사 공식 IR 또는 공식 발표자료에서 날짜를 확인한 종목에 `✓ 확정` 배지를 표시합니다.
 
-## 배포 방법
+## 배포
 
-1. GitHub에서 저장소를 엽니다.
-2. 저장소 **Settings → Pages → Branch: main / (root)** 를 선택합니다.
-3. 1~2분 후 `https://<아이디>.github.io/earnings-calendar/`로 접속합니다.
+1. GitHub 저장소에서 **Settings → Pages**로 이동합니다.
+2. **Branch: main / (root)**를 선택합니다.
+3. `https://<아이디>.github.io/earnings-calendar/`에서 확인합니다.
 
-## 자동 업데이트 동작
+## 일정 데이터
 
-`.github/workflows/update.yml`이 30분마다 실행됩니다(매시 7분과 37분, GitHub Actions 스케줄 기준).
-
-- **IR자료**: 더 이상 표시하거나 수집하지 않습니다.
-- **Transcript**: Notion의 `26.2Q 미국 DB`에서 캘린더 종목 티커와 일치하는 페이지를 찾아 `data/notion-transcripts.json`에 저장합니다.
-- Notion 자동 연결을 쓰려면 GitHub 저장소의 `Settings → Secrets and variables → Actions`에 `NOTION_TOKEN`을 추가해야 합니다.
-- `NOTION_TOKEN`이 없으면 기존 `data/notion-transcripts.json` 링크를 유지하고 종료합니다.
-
-## 수동 편집
-
-일정은 `data/calendar.json`에서 직접 수정할 수 있습니다.
-
-```json
-{"date": "2026-07-22", "session": "after", "name": "테슬라", "ticker": "TSLA", "hl": true}
-```
-
-Transcript 링크를 수동으로 추가하려면 `data/notion-transcripts.json`의 `links`에 티커와 Notion 페이지 URL을 넣으면 됩니다.
+일정은 `data/calendar.json`에서 관리합니다.
 
 ```json
 {
-  "links": {
-    "PEP": "https://app.notion.com/p/3992cff291cc8106b877f61c24792ff5"
-  }
+  "date": "2026-10-08",
+  "session": "before",
+  "name": "펩시코",
+  "ticker": "PEP",
+  "confirmed": true,
+  "source": "https://공식-IR-출처"
 }
 ```
 
-## Notion 연결 준비
+- `confirmed: true`: 회사 공식 IR·공식 보도자료에서 날짜 확인
+- `session: before`: 장 시작 전 발표
+- `session: after`: 장 마감 후 발표
+- `session: tba`: 발표 세션 미확인
+- `focus: true`: 반도체·장비 관련 관심주(파란 점)
 
-1. Notion에서 내부 통합을 만들고 Secret 토큰을 발급합니다.
-2. `26.2Q 미국 DB` 데이터베이스를 해당 통합에 공유합니다.
-3. GitHub Actions Secret에 `NOTION_TOKEN`을 저장합니다.
+현재 데이터는 2026-09-28 KST 기준으로 공식 일정이 확인된 종목만 담았습니다. 회사가 날짜를 발표하지 않은 종목은 예상일을 임의로 넣지 않고, 공식 일정이 확인되면 `calendar.json`에 추가합니다.
 
 ## 참고
 
-- 사이트에는 Notion 페이지 링크만 표시합니다.
-- Notion DB에 없는 종목은 Transcript 버튼이 나타나지 않습니다.
+- 모든 `IR` 링크는 각 회사의 공식 투자자 페이지 또는 공식 발표자료로 연결됩니다.
+- 사이트는 별도 빌드 과정 없이 GitHub Pages에서 `index.html`을 바로 제공합니다.
