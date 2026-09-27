@@ -20,9 +20,6 @@
     --tba:#f7f3e8;
     --text:#1c2530;
     --muted:#667085;
-    --confirmed:#087f5b;
-    --confirmed-bg:#eaf8f2;
-    --focus:#1c5fc4;
   }
 
   *{box-sizing:border-box}
@@ -117,42 +114,6 @@
 
   .legend-dot.semiconductor{background:var(--semi-blue)}
   .legend-dot.highlight{background:var(--red)}
-  .legend-dot.confirmed{background:var(--confirmed)}
-
-  .legend .dot{
-    display:inline-block;
-    width:8px;
-    height:8px;
-    border-radius:50%;
-    margin-right:4px;
-  }
-
-  .legend .dot.focus{background:var(--focus)}
-  .legend .dot.confirmed{background:var(--confirmed)}
-
-  .summary{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin:0 0 14px;
-  }
-
-  .summary-card{
-    display:flex;
-    align-items:baseline;
-    gap:6px;
-    padding:8px 11px;
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:9px;
-    color:var(--muted);
-    font-size:12px;
-  }
-
-  .summary-card strong{
-    color:var(--blue-dark);
-    font-size:16px;
-  }
 
   .week{
     background:var(--cell);
@@ -235,32 +196,7 @@
     vertical-align:middle;
   }
 
-  .co.focus .nm::before{
-    content:"•";
-    color:var(--focus);
-    margin-right:4px;
-  }
-
-  .confirmed-badge{
-    display:inline-flex;
-    align-items:center;
-    gap:2px;
-    margin-left:5px;
-    padding:1px 5px;
-    border:1px solid rgba(8,127,91,.25);
-    border-radius:999px;
-    background:var(--confirmed-bg);
-    color:var(--confirmed);
-    font-size:10px;
-    font-weight:800;
-    line-height:1.35;
-    vertical-align:middle;
-    white-space:nowrap;
-  }
-
-  .paren{
-    color:#8b94a1;
-  }
+  .paren{color:#8b94a1}
 
   a.lnk{
     cursor:pointer;
@@ -268,19 +204,8 @@
     font-weight:700;
   }
 
-  a.lnk.tr{
-    color:#b84d00;
-  }
-
-  a.lnk.ir{
-    color:var(--confirmed);
-    font-size:11px;
-    margin-left:3px;
-  }
-
-  a.lnk:hover{
-    text-decoration:underline;
-  }
+  a.lnk.tr{color:#b84d00}
+  a.lnk:hover{text-decoration:underline}
 
   .empty{
     color:#aab3bf;
@@ -336,39 +261,11 @@
       line-height:1.4;
     }
 
-    .legend span:nth-child(3),
-    .legend span:nth-child(4){
-      display:none;
-    }
-
-    .summary{
-      gap:6px;
-      margin-bottom:10px;
-    }
-
-    .summary-card{
-      padding:7px 9px;
-      font-size:11px;
-    }
-
-    .summary-card strong{
-      font-size:15px;
-    }
-
-    .desktop-calendar{
-      display:none;
-    }
-
-    .mobile-calendar{
-      display:block;
-    }
-
-    .mobile-week{
-      margin:0 0 16px;
-    }
-
+    .legend .desktop-note{display:none}
     .desktop-calendar{display:none}
     .mobile-calendar{display:block}
+
+    .mobile-week{margin:0 0 16px}
 
     .mobile-week-title{
       margin:0 2px 8px;
@@ -482,22 +379,7 @@
       touch-action:manipulation;
     }
 
-    a.lnk.ir{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:30px;
-      padding:4px 7px;
-      border:1px solid rgba(8,127,91,.25);
-      border-radius:999px;
-      background:var(--confirmed-bg);
-      font-size:11px;
-      touch-action:manipulation;
-    }
-
-    .session-list .paren{
-      display:none;
-    }
+    .session-list .paren{display:none}
 
     footer{
       padding-top:4px;
@@ -521,24 +403,24 @@
 <main>
   <p class="legend">
     <span class="legend-key"><span class="legend-dot semiconductor"></span><b style="color:var(--semi-blue)">파란 종목</b> = 반도체 관련</span>
-    <span class="legend-key"><span class="legend-dot confirmed"></span><b style="color:var(--confirmed)">확정</b> = 회사 공식 IR 또는 발표자료에서 날짜 확인</span>
-    <span>미확정 일정은 임의로 넣지 않았습니다.</span>
-    <span>발표 시간이 확인되지 않은 회사는 <b>시간미정</b>에 표시됩니다.</span>
+    <span class="legend-key"><span class="legend-dot highlight"></span><b style="color:var(--red)">빨간 종목</b> = 주요 관심 종목</span>
+    <span class="desktop-note">Transcript는 Notion의 <b>26.2Q 미국 DB</b>에서 연결된 항목만 표시됩니다.</span>
+    <span class="desktop-note">발표 시간이 확정되지 않은 회사는 <b>시간미정</b>에 표시됩니다.</span>
   </p>
-
-  <div id="summary" class="summary" aria-label="캘린더 요약"></div>
 
   <div id="desktopCal" class="desktop-calendar"></div>
   <div id="mobileCal" class="mobile-calendar"></div>
 </main>
 
 <footer>
-  일정 데이터: data/calendar.json · 기준일: 2026-09-28 KST · 날짜 출처: 각 회사 공식 IR
+  자동 업데이트: GitHub Actions · 기본 일정: data/calendar.json · 반도체 추가 일정: data/semiconductor-additions.json · Transcript: Notion 26.2Q 미국 DB
 </footer>
 
 <script>
 const DAYNAMES=["일","월","화","수","목","금","토"];
 const CALENDAR_DATA_URL="data/calendar.json";
+const SEMICONDUCTOR_ADDITIONS_URL="data/semiconductor-additions.json";
+const TRANSCRIPT_DATA_URL="data/notion-transcripts.json";
 
 /*
  * 반도체 설계·제조·파운드리·장비·테스트·후공정·EDA/IP·메모리/스토리지
@@ -552,6 +434,7 @@ const SEMICONDUCTOR_TICKERS=new Set([
   "TSM","TSEM","TXN","UCTT","UMC","VECO"
 ]);
 
+let notionTranscripts={};
 
 async function loadJson(url,fallback=null){
   const response=await fetch(url+"?t="+Date.now());
@@ -564,9 +447,65 @@ async function loadJson(url,fallback=null){
   return response.json();
 }
 
+function normalizeTranscriptLinks(links={}){
+  const normalized={};
+
+  for(const [ticker,url] of Object.entries(links||{})){
+    if(ticker && url){
+      normalized[String(ticker).toUpperCase()]=url;
+    }
+  }
+
+  return normalized;
+}
+
+function isNotionUrl(url){
+  return /^https:\/\/(app\.)?notion\.com\//i.test(url||"")
+    || /^https:\/\/(www\.)?notion\.so\//i.test(url||"");
+}
+
+function transcriptUrl(entry){
+  const ticker=(entry.ticker||"").toUpperCase();
+
+  if(ticker && notionTranscripts[ticker]){
+    return notionTranscripts[ticker];
+  }
+
+  return isNotionUrl(entry.script) ? entry.script : null;
+}
+
+function mergeEntries(originalEntries=[],additionalEntries=[]){
+  const merged=[];
+  const keys=new Set();
+
+  /*
+   * 기존 calendar.json 항목을 먼저 넣어 동일한 날짜·세션·티커가 있을 경우
+   * 기존 데이터가 우선되도록 합니다.
+   */
+  for(const entry of [...originalEntries,...additionalEntries]){
+    if(!entry || !entry.date) continue;
+
+    const ticker=String(entry.ticker||"").toUpperCase();
+    const session=entry.session==="after"
+      ? "after"
+      : entry.session==="tba"
+        ? "tba"
+        : "before";
+    const key=[entry.date,session,ticker||entry.name||""].join("|");
+
+    if(keys.has(key)) continue;
+
+    keys.add(key);
+    merged.push({...entry,session});
+  }
+
+  return merged;
+}
+
 function isSemiconductor(entry){
   return SEMICONDUCTOR_TICKERS.has(String(entry.ticker||"").toUpperCase());
 }
+
 function parseIso(value){
   const [year,month,day]=String(value).split("-").map(Number);
   return new Date(year,month-1,day);
@@ -617,7 +556,24 @@ function safeUrl(value){
   }
 }
 
-loadJson(CALENDAR_DATA_URL).then(render).catch(error=>{
+Promise.all([
+  loadJson(CALENDAR_DATA_URL),
+  loadJson(SEMICONDUCTOR_ADDITIONS_URL,{entries:[]}),
+  loadJson(TRANSCRIPT_DATA_URL,{links:{}})
+]).then(([calendarData,semiconductorData,transcriptData])=>{
+  notionTranscripts=normalizeTranscriptLinks(transcriptData.links);
+
+  const mergedData={
+    ...calendarData,
+    entries:mergeEntries(
+      Array.isArray(calendarData.entries) ? calendarData.entries : [],
+      Array.isArray(semiconductorData.entries) ? semiconductorData.entries : []
+    ),
+    updated:semiconductorData.updated||calendarData.updated
+  };
+
+  render(mergedData);
+}).catch(error=>{
   const message=`<p class="empty">데이터를 불러오지 못했습니다. ${escapeHtml(error.message)}</p>`;
   document.getElementById("desktopCal").innerHTML=message;
   document.getElementById("mobileCal").innerHTML=message;
@@ -648,8 +604,6 @@ function render(data){
   if(data.updated){
     document.getElementById("updated").textContent="마지막 갱신: "+data.updated;
   }
-
-  renderSummary(data,entries);
 
   const byDate={};
 
@@ -698,16 +652,6 @@ function render(data){
   renderDesktop(weeks,byDate,start,end);
   renderMobile(weeks,byDate,start,end);
   setupTodayButton(start,end);
-}
-
-function renderSummary(data,entries){
-  const confirmed=entries.filter(item=>item.confirmed===true).length;
-  const focus=entries.filter(item=>item.focus===true).length;
-  const sourceCount=new Set(entries.map(item=>item.source).filter(Boolean)).size;
-  document.getElementById("summary").innerHTML=`
-    <div class="summary-card"><strong>${confirmed}</strong><span>공식 일정 확정</span></div>
-    <div class="summary-card"><strong>${focus}</strong><span>반도체·장비 관심주</span></div>
-    <div class="summary-card"><strong>${sourceCount}</strong><span>회사 IR 출처</span></div>`;
 }
 
 function renderDesktop(weeks,byDate,start,end){
@@ -871,21 +815,18 @@ function companyHtml(entry){
 
   if(entry.hl) classes.push("hl");
   if(isSemiconductor(entry)) classes.push("semiconductor");
-  if(entry.focus) classes.push("focus");
+
+  const transcript=transcriptUrl(entry);
   const name=escapeHtml(entry.name||entry.ticker||"");
   const ticker=escapeHtml(entry.ticker||"");
 
-  const confirmed=entry.confirmed
-    ? ` <span class="confirmed-badge" title="공식 IR에서 날짜 확인">✓ 확정</span>`
-    : "";
-
-  const ir=entry.source
-    ? ` <a class="lnk ir" href="${safeUrl(entry.source)}" target="_blank" rel="noopener" title="공식 IR 출처">IR</a>`
+  const link=transcript
+    ? ` <span class="paren">(</span><a class="lnk tr" href="${safeUrl(transcript)}" target="_blank" rel="noopener">Transcript</a><span class="paren">)</span>`
     : "";
 
   const title=ticker ? ` title="${ticker}"` : "";
 
-  return `<div class="${classes.join(" ")}"><span class="nm"${title}>${name}</span>${confirmed}${ir}</div>`;
+  return `<div class="${classes.join(" ")}"><span class="nm"${title}>${name}</span>${link}</div>`;
 }
 </script>
 
